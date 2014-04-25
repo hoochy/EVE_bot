@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5f09c2-569d-4125-8482-01a72f3b90f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config.ini" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eve.py" afterPath="$PROJECT_DIR$/eve.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jabber_bot.py" afterPath="$PROJECT_DIR$/jabber_bot.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EVEbot.iws" />
@@ -32,7 +28,7 @@
     <file path="/jabber_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398423570814" ignored="false" />
     <file path="/" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389028171836" ignored="false" />
     <file path="/eve.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1397163265467" ignored="false" />
-    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398420380165" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398428921297" ignored="false" />
     <file path="/main.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398428711141" ignored="false" />
     <file path="/config.ini" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398426808098" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -473,6 +469,11 @@
       <created>1388729066279</created>
       <updated>1388729066279</updated>
     </task>
+    <task id="LOCAL-00001" summary="переработка в сторону плагинов">
+      <created>1398428926878</created>
+      <updated>1398428926878</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -499,6 +500,7 @@
     <frame x="-8" y="-8" width="1932" height="1092" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -524,7 +526,7 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="myTodoPanelSettings">
       <value>
         <are-packages-shown value="false" />
@@ -560,7 +562,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="переработка в сторону плагинов" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -574,6 +576,7 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="переработка в сторону плагинов" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
