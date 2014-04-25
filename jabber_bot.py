@@ -55,11 +55,11 @@ class EchoBot(sleekxmpp.ClientXMPP):
 
             if 'alert!' in msg['body']:
 
-                reply = xmpp.make_message(msg['from'], mbody = 'Запрашиваем данные с сервера. Подождите...', mtype='chat')
+                reply = self.make_message(msg['from'], mbody = 'Запрашиваем данные с сервера. Подождите...', mtype='chat')
                 reply.send()
 
                 for line in self.eve.get_notifications():
-                    reply = xmpp.make_message(msg['from'], mbody = line, mtype='chat')
+                    reply = self.make_message(msg['from'], mbody = line, mtype='chat')
                     reply.send()
                     #xmpp.send_message(mto=msg['from'],
                     #      mbody=self.msg,
@@ -68,7 +68,7 @@ class EchoBot(sleekxmpp.ClientXMPP):
                 return
             if 'help!' in msg['body']:
 
-                reply = xmpp.make_message(msg['from'], mbody = 'Доступные команды: \nhelp!\nallert!', mtype='chat')
+                reply = self.make_message(msg['from'], mbody = 'Доступные команды: \nhelp!\nallert!', mtype='chat')
                 reply.send()
                 return
             msg.reply("Thanks for sending\n%(body)s" % msg).send()

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c5f09c2-569d-4125-8482-01a72f3b90f4" name="Default" comment="">
+    <list default="true" id="1c5f09c2-569d-4125-8482-01a72f3b90f4" name="Default" comment="переработка в сторону плагинов">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jabber_bot.py" afterPath="$PROJECT_DIR$/jabber_bot.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EVEbot.iws" />
@@ -9,7 +11,7 @@
     <file path="/bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389014667200" ignored="false" />
     <file path="/eveapi.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1388746427005" ignored="false" />
     <file path="/111.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1388847368573" ignored="false" />
-    <file path="/fragment.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1397163146151" ignored="false" />
+    <file path="/fragment.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398430363667" ignored="false" />
     <file path="/IDConvert.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1388997330300" ignored="false" />
     <file path="/__init__.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389015242814" ignored="false" />
     <file path="/simplexml.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389015322202" ignored="false" />
@@ -25,11 +27,11 @@
     <file path="/filetransfer.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389017569480" ignored="false" />
     <file path="/commands.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389017625263" ignored="false" />
     <file path="/eve_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389028922644" ignored="false" />
-    <file path="/jabber_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398423570814" ignored="false" />
+    <file path="/jabber_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398430646040" ignored="false" />
     <file path="/" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389028171836" ignored="false" />
     <file path="/eve.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1397163265467" ignored="false" />
-    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398428921297" ignored="false" />
-    <file path="/main.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398428711141" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398428965545" ignored="false" />
+    <file path="/main.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398430662693" ignored="false" />
     <file path="/config.ini" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398426808098" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,11 +52,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="jabber_bot.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jabber_bot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="38" selection-start="2474" selection-end="2474" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#22#32#0" expanded="true" />
+                <element signature="e#136#774#0" expanded="false" />
+                <element signature="e#812#1229#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="0" selection-start="2367" selection-end="2367" vertical-scroll-proportion="0.22296172">
-              <folding />
+            <state line="86" column="31" selection-start="3048" selection-end="3048" vertical-scroll-proportion="0.8684211">
+              <folding>
+                <element signature="e#120#2054#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,8 +122,8 @@
         <option value="$PROJECT_DIR$/bot.py" />
         <option value="$PROJECT_DIR$/eve_bot.py" />
         <option value="$PROJECT_DIR$/config.ini" />
-        <option value="$PROJECT_DIR$/jabber_bot.py" />
         <option value="$PROJECT_DIR$/eve.py" />
+        <option value="$PROJECT_DIR$/jabber_bot.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -114,8 +131,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1932" />
-    <option name="height" value="1092" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -312,7 +329,9 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -473,7 +492,11 @@
       <created>1398428926878</created>
       <updated>1398428926878</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="переработка в сторону плагинов">
+      <created>1398428957056</created>
+      <updated>1398428957056</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -497,7 +520,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1932" height="1092" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -505,11 +528,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.6008538" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2593583" sideWeight="0.67202574" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2662407" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2588047" sideWeight="0.7171825" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30522946" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3279743" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2828175" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -589,15 +612,10 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="76" />
+      <option name="time" value="79" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Python33/Lib/hashlib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="31" selection-start="486" selection-end="492" vertical-scroll-proportion="-3.4" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sleekxmpp/clientxmpp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="333" column="0" selection-start="12695" selection-end="12695" vertical-scroll-proportion="0.8235294" />
@@ -611,13 +629,6 @@
     <entry file="file://$PROJECT_DIR$/sleekxmpp/basexmpp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="472" column="14" selection-start="18156" selection-end="18156" vertical-scroll-proportion="0.33830845" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sleekxmpp/xmlstream/xmlstream.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1651" column="17" selection-start="65970" selection-end="65970" vertical-scroll-proportion="0.5897436">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
@@ -672,13 +683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="230" selection-end="254" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python33/Lib/configparser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="11" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.0">
@@ -706,18 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jabber_bot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="2712" selection-end="2712" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#22#32#0" expanded="true" />
-            <element signature="e#136#774#0" expanded="false" />
-            <element signature="e#812#1229#0" expanded="false" />
-            <element signature="e#1267#2710#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eve.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="150" column="54" selection-start="6847" selection-end="6847" vertical-scroll-proportion="0.0">
@@ -734,10 +726,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="230" selection-end="254" vertical-scroll-proportion="0.2837633">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.84522">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sleekxmpp/xmlstream/xmlstream.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1676" column="0" selection-start="67160" selection-end="67160" vertical-scroll-proportion="0.3328">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jabber_bot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="38" selection-start="2474" selection-end="2474" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#22#32#0" expanded="true" />
+            <element signature="e#136#774#0" expanded="false" />
+            <element signature="e#812#1229#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="2367" selection-end="2367" vertical-scroll-proportion="0.22296172">
-          <folding />
+        <state line="86" column="31" selection-start="3048" selection-end="3048" vertical-scroll-proportion="0.8684211">
+          <folding>
+            <element signature="e#120#2054#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

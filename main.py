@@ -2,7 +2,7 @@ __author__ = 'hoochy'
 
 ErrorMessage = ''
 
-import configparser, eve, IDConvert
+import configparser, eve, IDConvert, jabber_bot
 
 def ReadConfig(options):
     global ErrorMessage
@@ -30,7 +30,7 @@ def ReadConfig(options):
     if not config.has_option('Jabber','password'):
         ErrorMessage = 'Option "password" not found in section "Jabber"!'
         return False
-    options['password'] = config.get('Jabber','JID')
+    options['password'] = config.get('Jabber','password')
 
     if not config.has_option('EVE','KEYID'):
         ErrorMessage = 'Option "KEYID" not found in section "EVE"!'
@@ -80,11 +80,11 @@ if ReadConfig(options):
     eve = eve.eve(KEYID = options['KEYID'], VCODE = options['VCODE'], CHARACTERID = options['CHARACTERID'])
 
     #создаем бота
-    xmpp = EchoBot(options['JID'], options['password'])
-    #xmpp.register_plugin('xep_0030') # Service Discovery
-    #xmpp.register_plugin('xep_0004') # Data Forms
-    #xmpp.register_plugin('xep_0060') # PubSub
-    #xmpp.register_plugin('xep_0199') # XMPP Ping
+    xmpp = jabber_bot.EchoBot(options['JID'], options['password'])
+    xmpp.register_plugin('xep_0030') # Service Discovery
+    xmpp.register_plugin('xep_0004') # Data Forms
+    xmpp.register_plugin('xep_0060') # PubSub
+    xmpp.register_plugin('xep_0199') # XMPP Ping
     # If you are working with an OpenFire server, you may need
     # to adjust the SSL version used:
     # xmpp.ssl_version = ssl.PROTOCOL_SSLv3
@@ -104,7 +104,7 @@ if ReadConfig(options):
         #
         # if xmpp.connect(('talk.google.com', 5222)):
         #     ...
-        xmpp.process(block=True)
+        xmpp.process(block = False)
         print("Done")
     else:
         print("Unable to connect.")
