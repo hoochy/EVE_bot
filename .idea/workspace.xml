@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5f09c2-569d-4125-8482-01a72f3b90f4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EVEbot.iws" />
@@ -28,7 +29,7 @@
     <file path="/jabber_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398433607723" ignored="false" />
     <file path="/" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389028171836" ignored="false" />
     <file path="/eve.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1397163265467" ignored="false" />
-    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398435199129" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398436170916" ignored="false" />
     <file path="/main.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398433893467" ignored="false" />
     <file path="/config.ini" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398426808098" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,11 +55,7 @@
         <entry file="file://$PROJECT_DIR$/jabber_bot.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="38" column="27" selection-start="1258" selection-end="1258" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#22#32#0" expanded="true" />
-                <element signature="e#136#774#0" expanded="false" />
-                <element signature="e#812#1229#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,7 +63,7 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="0" selection-start="4151" selection-end="4151" vertical-scroll-proportion="0.77408636">
+            <state line="5" column="0" selection-start="90" selection-end="90" vertical-scroll-proportion="0.09309967">
               <folding>
                 <element signature="e#120#2054#0" expanded="false" />
               </folding>
@@ -78,12 +75,7 @@
         <entry file="file://$PROJECT_DIR$/eve.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="138" column="22" selection-start="5979" selection-end="5979" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#23#36#0" expanded="true" />
-                <element signature="e#111#281#0" expanded="false" />
-                <element signature="e#324#562#0" expanded="false" />
-                <element signature="e#609#875#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -94,6 +86,9 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
     <option name="myDateState">
@@ -207,13 +202,13 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="C:/Program Files (x86)/Git/bin/git.exe" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -362,19 +357,6 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
-      <module name="" />
-      <option name="PORT" value="0" />
-      <option name="HOST" value="localhost" />
-      <PathMappingSettings>
-        <option name="pathMappings">
-          <list />
-        </option>
-      </PathMappingSettings>
-      <option name="REDIRECT_OUTPUT" value="true" />
-      <option name="SUSPEND_AFTER_CONNECT" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -396,6 +378,19 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
+      <module name="" />
+      <option name="PORT" value="0" />
+      <option name="HOST" value="localhost" />
+      <PathMappingSettings>
+        <option name="pathMappings">
+          <list />
+        </option>
+      </PathMappingSettings>
+      <option name="REDIRECT_OUTPUT" value="true" />
+      <option name="SUSPEND_AFTER_CONNECT" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -440,12 +435,12 @@
       <method />
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Python.eve" />
-      <item index="1" class="java.lang.String" itemvalue="Python.eveapi" />
-      <item index="2" class="java.lang.String" itemvalue="Python.111" />
-      <item index="3" class="java.lang.String" itemvalue="Python.IDConvert" />
-      <item index="4" class="java.lang.String" itemvalue="Python.jabber_bot" />
-      <item index="5" class="java.lang.String" itemvalue="Python.main" />
+      <item index="0" class="java.lang.String" itemvalue="Python.eveapi" />
+      <item index="1" class="java.lang.String" itemvalue="Python.111" />
+      <item index="2" class="java.lang.String" itemvalue="Python.IDConvert" />
+      <item index="3" class="java.lang.String" itemvalue="Python.jabber_bot" />
+      <item index="4" class="java.lang.String" itemvalue="Python.main" />
+      <item index="5" class="java.lang.String" itemvalue="Python.eve" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -530,24 +525,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.6008538" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2588047" sideWeight="0.67022413" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2614728" sideWeight="0.6709265" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30522946" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2828175" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32977587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -631,9 +626,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/111.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apitest.py">
@@ -645,19 +638,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IDConvert.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="50" selection-end="65" vertical-scroll-proportion="0.14143094">
-          <folding>
-            <element signature="e#23#38#0" expanded="true" />
-            <element signature="e#71#2155#0" expanded="false" />
-            <element signature="e#218#430#0" expanded="false" />
-            <element signature="e#486#607#0" expanded="false" />
-            <element signature="e#649#949#0" expanded="false" />
-            <element signature="e#992#1292#0" expanded="false" />
-            <element signature="e#1329#1582#0" expanded="false" />
-            <element signature="e#1628#1947#0" expanded="false" />
-            <element signature="e#2000#2155#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="5" column="0" selection-start="50" selection-end="65" vertical-scroll-proportion="0.14143094" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
@@ -669,71 +650,32 @@
     </entry>
     <entry file="file://C:/Python33/Lib/configparser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="11" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#5754#5974#0" expanded="false" />
-            <element signature="e#6010#6223#0" expanded="false" />
-            <element signature="e#6266#7161#0" expanded="false" />
-            <element signature="e#7203#8139#0" expanded="false" />
-            <element signature="e#8174#8456#0" expanded="false" />
-            <element signature="e#8496#8734#0" expanded="false" />
-            <element signature="e#8800#9320#0" expanded="false" />
-            <element signature="e#9379#9592#0" expanded="false" />
-            <element signature="e#9650#10070#0" expanded="false" />
-            <element signature="e#10104#11577#0" expanded="false" />
-            <element signature="e#11631#12037#0" expanded="false" />
-            <element signature="e#12259#12664#0" expanded="false" />
-            <element signature="e#12712#15443#0" expanded="false" />
-            <element signature="e#15494#18457#0" expanded="false" />
-            <element signature="e#18506#19815#0" expanded="false" />
-            <element signature="e#19861#45942#0" expanded="false" />
-            <element signature="e#45986#46646#0" expanded="false" />
-            <element signature="e#46691#47117#0" expanded="false" />
-            <element signature="e#47160#49436#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="49" column="11" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.84522">
-          <folding />
-        </state>
+        <state line="36" column="0" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.84522" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="230" selection-end="254" vertical-scroll-proportion="0.2992">
-          <folding />
-        </state>
+        <state line="11" column="0" selection-start="230" selection-end="254" vertical-scroll-proportion="0.2992" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sleekxmpp/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="18" selection-start="2754" selection-end="2757" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="77" column="18" selection-start="2754" selection-end="2757" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sleekxmpp/basexmpp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="28" selection-start="9668" selection-end="9668" vertical-scroll-proportion="-21.04">
-          <folding />
-        </state>
+        <state line="245" column="28" selection-start="9668" selection-end="9668" vertical-scroll-proportion="-21.04" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sleekxmpp/xmlstream/scheduler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#2945#9054#0" expanded="false" />
-            <element signature="e#3300#4064#0" expanded="false" />
-            <element signature="e#4126#4601#0" expanded="false" />
-            <element signature="e#4635#7267#0" expanded="false" />
-            <element signature="e#7386#8409#0" expanded="false" />
-            <element signature="e#8447#8970#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sleekxmpp/xmlstream/xmlstream.py">
@@ -747,44 +689,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sleekxmpp/clientxmpp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="20" selection-start="1177" selection-end="1184" vertical-scroll-proportion="0.32206118">
-          <folding />
-        </state>
+        <state line="49" column="20" selection-start="1177" selection-end="1184" vertical-scroll-proportion="0.32206118" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jabber_bot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="27" selection-start="1258" selection-end="1258" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#22#32#0" expanded="true" />
-            <element signature="e#136#774#0" expanded="false" />
-            <element signature="e#812#1229#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eveapi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="746" column="0" selection-start="28219" selection-end="28219" vertical-scroll-proportion="0.32198143">
-          <folding />
-        </state>
+        <state line="746" column="0" selection-start="28219" selection-end="28219" vertical-scroll-proportion="0.32198143" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eve.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="138" column="22" selection-start="5979" selection-end="5979" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#23#36#0" expanded="true" />
-            <element signature="e#111#281#0" expanded="false" />
-            <element signature="e#324#562#0" expanded="false" />
-            <element signature="e#609#875#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="0" selection-start="4151" selection-end="4151" vertical-scroll-proportion="0.77408636">
+        <state line="5" column="0" selection-start="90" selection-end="90" vertical-scroll-proportion="0.09309967">
           <folding>
             <element signature="e#120#2054#0" expanded="false" />
           </folding>
