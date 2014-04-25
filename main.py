@@ -59,6 +59,9 @@ def ReadConfig(options):
 
     return True
 
+def ttt():
+    print('10 seconds left')
+
 options = {}
 
 if ReadConfig(options):
@@ -107,6 +110,7 @@ if ReadConfig(options):
         # if xmpp.connect(('talk.google.com', 5222)):
         #     ...
         xmpp.process(block = False)
+        xmpp.schedule('testschedule', 10, ttt,repeat = True)
         print("Done")
     else:
         print("Unable to connect.")
