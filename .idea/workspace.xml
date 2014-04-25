@@ -28,7 +28,7 @@
     <file path="/jabber_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398433607723" ignored="false" />
     <file path="/" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389028171836" ignored="false" />
     <file path="/eve.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1397163265467" ignored="false" />
-    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398435084398" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398435199129" ignored="false" />
     <file path="/main.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398433893467" ignored="false" />
     <file path="/config.ini" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398426808098" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,7 +66,7 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="17" selection-start="3872" selection-end="3872" vertical-scroll-proportion="0.46345514">
+            <state line="121" column="0" selection-start="4151" selection-end="4151" vertical-scroll-proportion="0.77408636">
               <folding>
                 <element signature="e#120#2054#0" expanded="false" />
               </folding>
@@ -197,38 +197,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="EVEbot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EVEbot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EVEbot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sleekxmpp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EVEbot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EVEbot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sleekxmpp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xmlstream" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -534,7 +502,11 @@
       <created>1398435086413</created>
       <updated>1398435086413</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="разобрался с шедулером">
+      <created>1398435205052</created>
+      <updated>1398435205052</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -558,7 +530,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -812,7 +784,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="17" selection-start="3872" selection-end="3872" vertical-scroll-proportion="0.46345514">
+        <state line="121" column="0" selection-start="4151" selection-end="4151" vertical-scroll-proportion="0.77408636">
           <folding>
             <element signature="e#120#2054#0" expanded="false" />
           </folding>
