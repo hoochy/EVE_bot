@@ -78,6 +78,8 @@ if ReadConfig(options):
 
     #создаем интерфейс в еву
     eve = eve.eve(KEYID = options['KEYID'], VCODE = options['VCODE'], CHARACTERID = options['CHARACTERID'])
+    #временно
+    eve.bases = bases
 
     #создаем бота
     xmpp = jabber_bot.EchoBot(options['JID'], options['password'])

@@ -58,7 +58,7 @@ class EchoBot(sleekxmpp.ClientXMPP):
                 reply = self.make_message(msg['from'], mbody = 'Запрашиваем данные с сервера. Подождите...', mtype='chat')
                 reply.send()
 
-                for line in self.eve.get_notifications():
+                for line in self.eve.get_notifications(filter_type_id=('87',)):
                     reply = self.make_message(msg['from'], mbody = line, mtype='chat')
                     reply.send()
                     #xmpp.send_message(mto=msg['from'],

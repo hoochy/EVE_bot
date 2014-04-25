@@ -122,7 +122,7 @@ class eve:
         message = self.decode_notification(result.notifications[0].data, typeID)
         return message
 
-    def get_notifications(self, filter_type_id=""):
+    def get_notifications(self, filter_type_id=()):
 
         #выводит все нотификации с телами для всех чаров по ключу авторизованному в auth
         result2 = self.auth.account.Characters()
