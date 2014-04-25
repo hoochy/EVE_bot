@@ -1,7 +1,6 @@
 __author__ = 'hoochy'
 
 import eveapi
-import IDConvert
 import datetime
 
 class eve:
@@ -143,29 +142,11 @@ class eve:
 
         return news_line
 
-    def __init__(self, TEST_KEYID = '2926885',  TEST_VCODE = "YS0gR1goD7dw2IgspU01lr1mjbxGhIjJDRq3jZAq5kiwvCOf0SscBQHQURn8ejT7", TEST_CHARACTERID = '1346573794'):
-
-        self.TEST_KEYID = '2926885'
-        self.TEST_VCODE = "YS0gR1goD7dw2IgspU01lr1mjbxGhIjJDRq3jZAq5kiwvCOf0SscBQHQURn8ejT7"
-        self.TEST_CHARACTERID = '1346573794'
-        self.TEST_DB_ALLIANCE_FILENAME = 'alliance.db'
-        self.TEST_DB_SOLAR_SYSTEM_FILENAME = 'solar_system.db'
+    def __init__(self, KEYID = '',  VCODE = "", CHARACTERID = ''):
 
         #создаем экземпляр интерфейса
         self.api = eveapi.EVEAPIConnection()
 
         #авторизуемся на сервере. необходимы только эти параметры, дополнительные передаются в соответствующие функции.
-        self.auth = self.api.auth(keyID=TEST_KEYID, vCode=TEST_VCODE)
+        self.auth = self.api.auth(keyID=KEYID, vCode=VCODE)
 
-        #создаем базы объектов
-        self.bases = {}
-
-        #альянсы
-        alliance_db = IDConvert.dbm_base() # создаем экземпляр базы альянсов
-        alliance_db.db_file_name = self.TEST_DB_ALLIANCE_FILENAME
-        self.bases['alliance_db'] = alliance_db
-
-        #солнечные системы
-        solar_system_db = IDConvert.dbm_base() # создаем экземпляр базы альянсов
-        solar_system_db.db_file_name = self.TEST_DB_SOLAR_SYSTEM_FILENAME
-        self.bases['solar_system_db'] = solar_system_db

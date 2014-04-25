@@ -1,10 +1,6 @@
 __author__ = 'hoochy'
 import sys
-import logging
-import getpass
-from optparse import OptionParser
-
-import sleekxmpp, eve
+import sleekxmpp
 
 class EchoBot(sleekxmpp.ClientXMPP):
 
@@ -57,7 +53,7 @@ class EchoBot(sleekxmpp.ClientXMPP):
             if 'die!' in msg['body']:
                 self._disconnect()
 
-            if 'allert!' in msg['body']:
+            if 'alert!' in msg['body']:
 
                 reply = xmpp.make_message(msg['from'], mbody = 'Запрашиваем данные с сервера. Подождите...', mtype='chat')
                 reply.send()
@@ -77,45 +73,3 @@ class EchoBot(sleekxmpp.ClientXMPP):
                 return
             msg.reply("Thanks for sending\n%(body)s" % msg).send()
 
-#создаем интерфейс в еву
-eve = eve.eve()
-
-#создаем бота
-jid = "stormbp@jb.legionofdeath.ru"
-password = "123newpass321"
-
-xmpp = EchoBot(jid, password)
-xmpp.register_plugin('xep_0030') # Service Discovery
-xmpp.register_plugin('xep_0004') # Data Forms
-xmpp.register_plugin('xep_0060') # PubSub
-xmpp.register_plugin('xep_0199') # XMPP Ping
-
-xmpp.eve = eve
-
-# If you are working with an OpenFire server, you may need
-# to adjust the SSL version used:
-# xmpp.ssl_version = ssl.PROTOCOL_SSLv3
-
-# If you want to verify the SSL certificates offered by a server:
-# xmpp.ca_certs = "path/to/ca/cert"
-
-# Connect to the XMPP server and start processing XMPP stanzas.
-if xmpp.connect():
-    # If you do not have the dnspython library installed, you will need
-    # to manually specify the name of the server if it does not match
-    # the one in the JID. For example, to use Google Talk you would
-    # need to use:
-    #
-    # if xmpp.connect(('talk.google.com', 5222)):
-    #     ...
-    xmpp.process(block=True)
-    print("Done")
-else:
-    print("Unable to connect.")
-
-
-#играемся
-#alliance_list() #создаем базу альянсов
-#get_wallet()
-#solar_system_list()
-#get_notifications()
