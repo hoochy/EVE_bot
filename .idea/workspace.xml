@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5f09c2-569d-4125-8482-01a72f3b90f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/get_notifications.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/ReloadPlugins.py" afterPath="$PROJECT_DIR$/plugins/ReloadPlugins.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.ini" afterPath="$PROJECT_DIR$/config.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eve.py" afterPath="$PROJECT_DIR$/eve.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/get_alliances_list.py" afterPath="$PROJECT_DIR$/plugins/get_alliances_list.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/get_solarsystems_list.py" afterPath="$PROJECT_DIR$/plugins/get_solarsystems_list.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/help.py" afterPath="$PROJECT_DIR$/plugins/help.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jabber_bot.py" afterPath="$PROJECT_DIR$/jabber_bot.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EVEbot.iws" />
@@ -36,7 +28,7 @@
     <file path="/jabber_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398601589495" ignored="false" />
     <file path="/" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389028171836" ignored="false" />
     <file path="/eve.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1397163265467" ignored="false" />
-    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398600367457" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398607912724" ignored="false" />
     <file path="/main.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398592181407" ignored="false" />
     <file path="/config.ini" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398426808098" ignored="false" />
     <file path="/ReloadPlugins.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398590967158" ignored="false" />
@@ -585,7 +577,11 @@
       <created>1398600369729</created>
       <updated>1398600369729</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="plugin system, help system">
+      <created>1398607916093</created>
+      <updated>1398607916093</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -674,7 +670,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="some fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="plugin system, help system" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -696,6 +692,7 @@
     <MESSAGE value="подключил загрузку плагинов" />
     <MESSAGE value="добавил плагины на загрузку баз" />
     <MESSAGE value="some fixes" />
+    <MESSAGE value="plugin system, help system" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
