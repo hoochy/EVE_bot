@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5f09c2-569d-4125-8482-01a72f3b90f4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/ReloadPlugins.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jabber_bot.py" afterPath="$PROJECT_DIR$/jabber_bot.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -26,12 +29,13 @@
     <file path="/filetransfer.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389017569480" ignored="false" />
     <file path="/commands.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389017625263" ignored="false" />
     <file path="/eve_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389028922644" ignored="false" />
-    <file path="/jabber_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398433607723" ignored="false" />
+    <file path="/jabber_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398587303553" ignored="false" />
     <file path="/" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389028171836" ignored="false" />
     <file path="/eve.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1397163265467" ignored="false" />
-    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398436170916" ignored="false" />
-    <file path="/main.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398433893467" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398436341950" ignored="false" />
+    <file path="/main.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398585633478" ignored="false" />
     <file path="/config.ini" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398426808098" ignored="false" />
+    <file path="/ReloadPlugins.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398590967158" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,18 +58,22 @@
       <file leaf-file-name="jabber_bot.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jabber_bot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="27" selection-start="1258" selection-end="1258" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="60" column="0" selection-start="2068" selection-end="2068" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#136#774#0" expanded="false" />
+                <element signature="e#812#1229#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="90" selection-end="90" vertical-scroll-proportion="0.09309967">
+            <state line="86" column="23" selection-start="2789" selection-end="2789" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#120#2054#0" expanded="false" />
+                <element signature="e#124#2058#0" expanded="false" />
+                <element signature="e#2075#2100#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -74,7 +82,23 @@
       <file leaf-file-name="eve.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eve.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="138" column="22" selection-start="5979" selection-end="5979" vertical-scroll-proportion="0.0">
+            <state line="80" column="24" selection-start="2924" selection-end="2924" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#111#281#0" expanded="false" />
+                <element signature="e#324#562#0" expanded="false" />
+                <element signature="e#609#875#0" expanded="false" />
+                <element signature="e#942#2575#0" expanded="false" />
+                <element signature="e#4675#5355#0" expanded="false" />
+                <element signature="e#5418#6519#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReloadPlugins.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/plugins/ReloadPlugins.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="0" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0752">
               <folding />
             </state>
           </provider>
@@ -98,7 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/xmpp/debug.py" />
         <option value="$PROJECT_DIR$/xmpp/transports.py" />
         <option value="$PROJECT_DIR$/xmpp/dispatcher.py" />
         <option value="$PROJECT_DIR$/xmpp/roster.py" />
@@ -112,8 +135,9 @@
         <option value="$PROJECT_DIR$/eve_bot.py" />
         <option value="$PROJECT_DIR$/config.ini" />
         <option value="$PROJECT_DIR$/eve.py" />
-        <option value="$PROJECT_DIR$/jabber_bot.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/jabber_bot.py" />
+        <option value="$PROJECT_DIR$/plugins/ReloadPlugins.py" />
       </list>
     </option>
   </component>
@@ -195,6 +219,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EVEbot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EVEbot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -219,6 +257,11 @@
     <option name="myDjangoConsoleState">
       <PyConsoleSettings />
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hoochy\PycharmProjects\EVEbot\plugins" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration default="false" name="eveapi" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -435,12 +478,12 @@
       <method />
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Python.eveapi" />
-      <item index="1" class="java.lang.String" itemvalue="Python.111" />
-      <item index="2" class="java.lang.String" itemvalue="Python.IDConvert" />
-      <item index="3" class="java.lang.String" itemvalue="Python.jabber_bot" />
-      <item index="4" class="java.lang.String" itemvalue="Python.main" />
-      <item index="5" class="java.lang.String" itemvalue="Python.eve" />
+      <item index="0" class="java.lang.String" itemvalue="Python.eve" />
+      <item index="1" class="java.lang.String" itemvalue="Python.eveapi" />
+      <item index="2" class="java.lang.String" itemvalue="Python.111" />
+      <item index="3" class="java.lang.String" itemvalue="Python.IDConvert" />
+      <item index="4" class="java.lang.String" itemvalue="Python.jabber_bot" />
+      <item index="5" class="java.lang.String" itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -501,7 +544,11 @@
       <created>1398435205052</created>
       <updated>1398435205052</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="играюсь с гит">
+      <created>1398436357901</created>
+      <updated>1398436357901</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -526,14 +573,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.6008538" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2614728" sideWeight="0.6709265" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30522946" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2614728" sideWeight="0.6947705" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30522946" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2828175" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -542,7 +590,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -590,7 +637,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="разобрался с шедулером" />
+    <option name="LAST_COMMIT_MESSAGE" value="играюсь с гит" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -608,6 +655,7 @@
     <MESSAGE value="исправил ошибку бота при отправке ответа в приват" />
     <MESSAGE value="сделал фильтр сообщений списком, а не строкой. по строке убого работало условие in для фильтрации." />
     <MESSAGE value="разобрался с шедулером" />
+    <MESSAGE value="играюсь с гит" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -620,27 +668,10 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="82" />
+      <option name="time" value="90" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/111.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apitest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="217" column="32" selection-start="7771" selection-end="7771" vertical-scroll-proportion="0.9434276">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IDConvert.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="50" selection-end="65" vertical-scroll-proportion="0.14143094" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -651,11 +682,6 @@
     <entry file="file://C:/Python33/Lib/configparser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="11" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.84522" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.ini">
@@ -670,31 +696,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sleekxmpp/basexmpp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="28" selection-start="9668" selection-end="9668" vertical-scroll-proportion="-21.04" />
+        <state line="245" column="28" selection-start="9668" selection-end="9668" vertical-scroll-proportion="-21.04">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sleekxmpp/xmlstream/scheduler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sleekxmpp/xmlstream/xmlstream.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1163" column="41" selection-start="45158" selection-end="45158" vertical-scroll-proportion="0.0273752">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#368#423#0" expanded="true" />
+            <element signature="e#2945#9054#0" expanded="false" />
+            <element signature="e#3300#4064#0" expanded="false" />
+            <element signature="e#4126#4601#0" expanded="false" />
+            <element signature="e#4635#7267#0" expanded="false" />
+            <element signature="e#7386#8409#0" expanded="false" />
+            <element signature="e#8447#8970#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sleekxmpp/clientxmpp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="20" selection-start="1177" selection-end="1184" vertical-scroll-proportion="0.32206118" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jabber_bot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="27" selection-start="1258" selection-end="1258" vertical-scroll-proportion="0.0">
+        <state line="49" column="20" selection-start="1177" selection-end="1184" vertical-scroll-proportion="0.32206118">
           <folding />
         </state>
       </provider>
@@ -704,19 +727,74 @@
         <state line="746" column="0" selection-start="28219" selection-end="28219" vertical-scroll-proportion="0.32198143" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sleekxmpp/roster/item.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="0" selection-start="5448" selection-end="5448" vertical-scroll-proportion="0.9626784">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.8368">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sleekxmpp/xmlstream/xmlstream.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1680" column="0" selection-start="67376" selection-end="67376" vertical-scroll-proportion="0.3328">
+          <folding>
+            <element signature="e#368#423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/eve.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="22" selection-start="5979" selection-end="5979" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="80" column="24" selection-start="2924" selection-end="2924" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#111#281#0" expanded="false" />
+            <element signature="e#324#562#0" expanded="false" />
+            <element signature="e#609#875#0" expanded="false" />
+            <element signature="e#942#2575#0" expanded="false" />
+            <element signature="e#4675#5355#0" expanded="false" />
+            <element signature="e#5418#6519#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jabber_bot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="0" selection-start="2068" selection-end="2068" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#136#774#0" expanded="false" />
+            <element signature="e#812#1229#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="90" selection-end="90" vertical-scroll-proportion="0.09309967">
+        <state line="86" column="23" selection-start="2789" selection-end="2789" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#120#2054#0" expanded="false" />
+            <element signature="e#124#2058#0" expanded="false" />
+            <element signature="e#2075#2100#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/ReloadPlugins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0752">
+          <folding />
         </state>
       </provider>
     </entry>

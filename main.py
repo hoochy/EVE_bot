@@ -2,7 +2,7 @@ __author__ = 'hoochy'
 
 ErrorMessage = ''
 
-import configparser, eve, IDConvert, jabber_bot
+import configparser, eve, IDConvert, jabber_bot, os
 
 def ReadConfig(options):
     global ErrorMessage
@@ -62,6 +62,26 @@ def ReadConfig(options):
 def ttt():
     print('120 seconds left')
 
+def loadPlugins():
+
+    commands = []
+
+    #Перебираем все файлы из папки plugins
+    for fname in os.listdir('plugins/'):
+        #Если файл заканчивается на '.py'
+        if fname.endswith('.py'):
+            #Обрезаем последние 3 буквы
+            plugin_name = fname[:-3]
+            #Если имя файла не '__init__'
+            if plugin_name != '__init__':
+                #Загружаем плагин в переменную
+                plugins = __import__('plugins.'+plugin_name)
+                #Достаем плагин с переменной
+                commands.append(plugin_name)
+
+    #Возвращаем ассоциативный словарь
+    return {'storage':plugins, 'commands':commands}
+
 options = {}
 
 if ReadConfig(options):
@@ -99,6 +119,8 @@ if ReadConfig(options):
 
     #передаем боту интерфейс в еву
     xmpp.eve = eve
+    #передаем список плагинов
+    xmpp.plugins = loadPlugins()
 
     # Connect to the XMPP server and start processing XMPP stanzas.
     if xmpp.connect():

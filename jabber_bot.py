@@ -53,6 +53,17 @@ class EchoBot(sleekxmpp.ClientXMPP):
             if 'die!' in msg['body']:
                 self._disconnect()
 
+            #получим первое слово сообщения
+            command = msg['body'].split(' ')[0]
+
+            if command in self.plugins['commands']:
+                module = getattr(self.plugins['storage'],command)
+                module.exec(bot = self, msg = msg, ReplyTo = None, auth = None)
+            else:
+                msg.reply("Thanks for sending\n%(body)s" % msg).send()
+
+            return
+
             if 'alert!' in msg['body']:
 
                 reply = self.make_message(msg['from'], mbody = 'Запрашиваем данные с сервера. Подождите...', mtype='chat')
@@ -71,5 +82,5 @@ class EchoBot(sleekxmpp.ClientXMPP):
                 reply = self.make_message(msg['from'], mbody = 'Доступные команды: \nhelp!\nallert!', mtype='chat')
                 reply.send()
                 return
-            msg.reply("Thanks for sending\n%(body)s" % msg).send()
+
 
