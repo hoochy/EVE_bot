@@ -97,7 +97,6 @@ if ReadConfig(options):
     solar_system_db = IDConvert.dbm_base() # создаем экземпляр базы солнечных систем
     solar_system_db.db_file_name = options['DB_SOLAR_SYSTEM_FILENAME']
     bases['solar_system_db'] = solar_system_db
-    options['bases'] = bases
 
     #создаем интерфейс в еву
     eve = eve.eve(KEYID = options['KEYID'], VCODE = options['VCODE'], CHARACTERID = options['CHARACTERID'])
@@ -117,8 +116,12 @@ if ReadConfig(options):
     # If you want to verify the SSL certificates offered by a server:
     # xmpp.ca_certs = "path/to/ca/cert"
 
+    #передаем боту конфиг
+    xmpp.options = options
     #передаем боту интерфейс в еву
     xmpp.eve = eve
+    #передаем боту базы
+    xmpp.bases = bases
     #передаем список плагинов
     xmpp.plugins = loadPlugins()
 
@@ -133,7 +136,7 @@ if ReadConfig(options):
         #     ...
         xmpp.process(block = False)
         xmpp.schedule('testschedule', 120, ttt,repeat = True)
-        print("Done")
+        print("Bot started")
     else:
         print("Unable to connect.")
 

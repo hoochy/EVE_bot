@@ -49,7 +49,7 @@ class EchoBot(sleekxmpp.ClientXMPP):
                    how it may be used.
         """
         if msg['type'] in ('chat', 'normal'):
-                        #hoochy
+
             if 'die!' in msg['body']:
                 self._disconnect()
 
@@ -77,10 +77,6 @@ class EchoBot(sleekxmpp.ClientXMPP):
                     #      mtype='chat')
                     #msg.reply(line).send()
                 return
-            if 'help!' in msg['body']:
 
-                reply = self.make_message(msg['from'], mbody = 'Доступные команды: \nhelp!\nallert!', mtype='chat')
-                reply.send()
-                return
 
 

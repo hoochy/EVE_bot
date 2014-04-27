@@ -14,23 +14,6 @@ class eve:
         else:
             return "%s" % value
 
-    def form_alliance_db(self):
-
-        result = self.api.eve.AllianceList()
-        alliance_db = self.bases['alliance_db']
-
-        for alliance in result.alliances:
-            alliance_db.set_value_by_ID(self.string_format(alliance.allianceID), string_format(alliance.name))
-
-    def form_solar_system_db(self):
-
-        solar_system_db = self.bases['solar_system_db']
-
-        result = self.api.map.Sovereignty()
-
-        for system in result.solarSystems:
-            solar_system_db.set_value_by_ID(self.string_format(system.solarSystemID), self.string_format(system.solarSystemName))
-
     def convert_ID_to_human_readable(self, dict_param):
 
         #превращаем ID в представления

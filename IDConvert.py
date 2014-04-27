@@ -48,7 +48,7 @@ class dbm_base:
 
         #проверим файл на существование
         if self._db_file_exist():
-            self._db_base = dbm.dumb.open(self.db_file_name, 'r')  # открыть файл базы данных
+            self._db_base = dbm.dumb.open(self.db_file_name, 'w')  # открыть файл базы данных
 
     def close_base(self):
 
