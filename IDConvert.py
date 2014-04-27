@@ -13,10 +13,10 @@ class dbm_base:
 
     def _db_file_exist(self):
 
-        return True
-
         if self.db_file_name == '':
             return False
+
+        return True
 
         if not os.path.isfile(self.db_file_name):
             f = open(self.db_file_name, 'w')
@@ -39,6 +39,7 @@ class dbm_base:
         #проверим файл на существование
         if self._db_file_exist():
             self._db_base = dbm.dumb.open(self.db_file_name, 'r')  # открыть файл базы данных
+            self._flag_opened_for_write = False
 
     def _open_base_write(self):
 
@@ -49,6 +50,7 @@ class dbm_base:
         #проверим файл на существование
         if self._db_file_exist():
             self._db_base = dbm.dumb.open(self.db_file_name, 'w')  # открыть файл базы данных
+            self._flag_opened_for_write = True
 
     def close_base(self):
 

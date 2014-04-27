@@ -18,7 +18,7 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None):
     reply.send()
 
     result = bot.eve.api.map.Sovereignty()
-    solar_system_db = bot.bases['solar_system_d']
+    solar_system_db = bot.bases['solar_system_db']
 
     for system in result.solarSystems:
         solar_system_db.set_value_by_ID(string_format(system.solarSystemID), string_format(system.solarSystemName))
