@@ -9,7 +9,7 @@ def string_format(value):
     else:
         return "%s" % value
 
-def exec(bot = False, msg = None, ReplyTo = None, auth = None):
+def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
 
     if not bot or not msg:
         return False

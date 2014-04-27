@@ -1,7 +1,7 @@
 __author__ = 'hoochy'
 import os
 
-def exec(bot = False, msg = None, ReplyTo = None, auth = None):
+def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
 
     if not bot or not msg:
         return False

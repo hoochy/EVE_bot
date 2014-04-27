@@ -54,29 +54,16 @@ class EchoBot(sleekxmpp.ClientXMPP):
                 self._disconnect()
 
             #получим первое слово сообщения
-            command = msg['body'].split(' ')[0]
-
+            temp_list = msg['body'].split(' ')
+            command = temp_list[0]
+            #проверим есть ли параметры
+            param = None
+            if len(temp_list) > 1:
+                param = temp_list[1:]
             if command in self.plugins['commands']:
                 module = getattr(self.plugins['storage'],command)
-                module.exec(bot = self, msg = msg, ReplyTo = None, auth = None)
+                module.exec(bot = self, msg = msg, ReplyTo = None, auth = None, param = param)
             else:
                 msg.reply("Thanks for sending\n%(body)s" % msg).send()
 
-            return
-
-            if 'alert!' in msg['body']:
-
-                reply = self.make_message(msg['from'], mbody = 'Запрашиваем данные с сервера. Подождите...', mtype='chat')
-                reply.send()
-
-                for line in self.eve.get_notifications(filter_type_id=('87',)):
-                    reply = self.make_message(msg['from'], mbody = line, mtype='chat')
-                    reply.send()
-                    #xmpp.send_message(mto=msg['from'],
-                    #      mbody=self.msg,
-                    #      mtype='chat')
-                    #msg.reply(line).send()
-                return
-
-
-
+        return
