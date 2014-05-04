@@ -14,8 +14,16 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
     if not bot or not msg:
         return False
 
-    reply = bot.make_message(msg['from'], mbody = '--------------------\nReloading alliance list from EVE API...', mtype='chat')
-    reply.send()
+    textline = '--------------------\nReloading alliance list from EVE API...'
+
+    if not ReplyTo:
+        reply = bot.make_message(msg['from'], mbody = textline, mtype='chat')
+        reply.send()
+    else:
+        if 'room' in ReplyTo and 'mtype' in ReplyTo:
+            bot.sendMessage(ReplyTo['room'], textline, mtype = ReplyTo['mtype'])
+        else:
+            return False
 
     result = bot.eve.api.eve.AllianceList()
     alliance_db = bot.bases['alliance_db']

@@ -20,6 +20,7 @@ class EchoBot(sleekxmpp.ClientXMPP):
         # переношу обработчик в основной модуль
         self.add_event_handler("message", self.message)
 
+
     def start(self, event):
         """
         Process the session_start event.
@@ -48,7 +49,7 @@ class EchoBot(sleekxmpp.ClientXMPP):
                    for stanza objects and the Message stanza to see
                    how it may be used.
         """
-        if msg['type'] in ('chat', 'normal'):
+        if msg['type'] in ('chat', 'normal', 'groupchat'):
 
             if 'die!' in msg['body']:
                 self._disconnect()
@@ -61,9 +62,17 @@ class EchoBot(sleekxmpp.ClientXMPP):
             if len(temp_list) > 1:
                 param = temp_list[1:]
             if command in self.plugins['commands']:
+                ReplyTo = None
+                if msg['type'] == 'groupchat':
+                    #TODO комнату запихать в ини файл
+                    ReplyTo = {'room':'alliance@conference.jb.legionofdeath.ru', 'mtype':'groupchat'}
                 module = getattr(self.plugins['storage'],command)
-                module.exec(bot = self, msg = msg, ReplyTo = None, auth = None, param = param)
+                module.exec(bot = self, msg = msg, ReplyTo = ReplyTo, auth = None, param = param)
             else:
                 msg.reply("Thanks for sending\n%(body)s" % msg).send()
 
         return
+
+    # Подключение к конференции
+    def joinMUC(self, room, nick):
+        self.plugin['xep_0045'].joinMUC(room, nick,  pshow='chat')

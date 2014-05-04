@@ -109,6 +109,7 @@ if ReadConfig(options):
     xmpp.register_plugin('xep_0004') # Data Forms
     xmpp.register_plugin('xep_0060') # PubSub
     xmpp.register_plugin('xep_0199') # XMPP Ping
+    xmpp.register_plugin('xep_0045') # XMPP MUC
     # If you are working with an OpenFire server, you may need
     # to adjust the SSL version used:
     # xmpp.ssl_version = ssl.PROTOCOL_SSLv3
@@ -135,6 +136,10 @@ if ReadConfig(options):
         # if xmpp.connect(('talk.google.com', 5222)):
         #     ...
         xmpp.process(block = False)
+
+        #подключаемся к конфе
+        #TODO комнату запихать в ини файл
+        xmpp.joinMUC('alliance@conference.jb.legionofdeath.ru', 'stormbp')
         xmpp.schedule('testschedule', 120, ttt,repeat = True)
         print("Bot started")
     else:

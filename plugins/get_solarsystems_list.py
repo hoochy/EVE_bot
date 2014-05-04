@@ -14,8 +14,16 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
     if not bot or not msg:
         return False
 
-    reply = bot.make_message(msg['from'], mbody = '--------------------\nReloading solar system list from EVE API...', mtype='chat')
-    reply.send()
+    textline = '--------------------\nReloading solar system list from EVE API...'
+
+    if not ReplyTo:
+        reply = bot.make_message(msg['from'], mbody = textline, mtype='chat')
+        reply.send()
+    else:
+        if 'room' in ReplyTo and 'mtype' in ReplyTo:
+            bot.sendMessage(ReplyTo['room'], textline, mtype = ReplyTo['mtype'])
+        else:
+            return False
 
     result = bot.eve.api.map.Sovereignty()
     solar_system_db = bot.bases['solar_system_db']
@@ -24,7 +32,15 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
         solar_system_db.set_value_by_ID(string_format(system.solarSystemID), string_format(system.solarSystemName))
     solar_system_db.close_base()
 
-    reply = bot.make_message(msg['from'], mbody = '--------------------\nReloading complete.', mtype='chat')
-    reply.send()
+    textline = '--------------------\nReloading complete.'
+
+    if not ReplyTo:
+        reply = bot.make_message(msg['from'], mbody = textline, mtype='chat')
+        reply.send()
+    else:
+        if 'room' in ReplyTo and 'mtype' in ReplyTo:
+            bot.sendMessage(ReplyTo['room'], textline, mtype = ReplyTo['mtype'])
+        else:
+            return False
 
     return True

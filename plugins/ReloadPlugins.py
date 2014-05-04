@@ -39,7 +39,13 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
     if not miss_list and not new_list:
         textline = textline + 'No changes'
 
-    reply = bot.make_message(msg['from'], mbody = textline, mtype='chat')
-    reply.send()
+    if not ReplyTo:
+        reply = bot.make_message(msg['from'], mbody = textline, mtype='chat')
+        reply.send()
+    else:
+        if 'room' in ReplyTo and 'mtype' in ReplyTo:
+            bot.sendMessage(ReplyTo['room'], textline, mtype = ReplyTo['mtype'])
+        else:
+            return False
 
     return True
