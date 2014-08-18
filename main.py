@@ -57,6 +57,11 @@ def ReadConfig(options):
         return False
     options['DB_SOLAR_SYSTEM_FILENAME'] = config.get('DB','DB_SOLAR_SYSTEM_FILENAME')
 
+    if not config.has_option('DB','DB_GROUPS'):
+        ErrorMessage = 'Option "DB_GROUPS" not found in section "DB"!'
+        return False
+    options['DB_GROUPS'] = config.get('DB','DB_GROUPS')
+
     return True
 
 def ttt():
@@ -98,6 +103,11 @@ if ReadConfig(options):
     solar_system_db.db_file_name = options['DB_SOLAR_SYSTEM_FILENAME']
     bases['solar_system_db'] = solar_system_db
 
+    #группы для броадкаста
+    group_db = IDConvert.dbm_base() # создаем экземпляр базы групп броадкастов
+    group_db.db_file_name = options['DB_GROUPS']
+    bases['group_db'] = group_db
+
     #создаем интерфейс в еву
     eve = eve.eve(KEYID = options['KEYID'], VCODE = options['VCODE'], CHARACTERID = options['CHARACTERID'])
     #временно
@@ -136,11 +146,7 @@ if ReadConfig(options):
         # if xmpp.connect(('talk.google.com', 5222)):
         #     ...
         xmpp.process(block = False)
-
-        #подключаемся к конфе
-        #TODO комнату запихать в ини файл
-        xmpp.joinMUC('alliance@conference.jb.legionofdeath.ru', 'stormbp')
-        xmpp.schedule('testschedule', 120, ttt,repeat = True)
+        #xmpp.schedule('testschedule', 120, ttt,repeat = True)
         print("Bot started")
     else:
         print("Unable to connect.")

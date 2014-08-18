@@ -71,7 +71,7 @@ class dbm_base:
         else:
             self.result = False
             self.message = 'ID missing'
-            return ''
+            return b''
 
     def set_value_by_ID(self, ID, value):
 
@@ -79,4 +79,12 @@ class dbm_base:
             self._open_base_write()
 
         self._db_base[ID] = value              # присвоить значение по ключу
+
+    def get_list(self):
+
+        if not self._base_opened():
+            self._open_base_read()
+        items = self._db_base
+        self.result = True
+        return items
 
