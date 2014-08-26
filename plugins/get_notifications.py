@@ -25,7 +25,13 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
     else:
         param_list = ()
 
-    reply = bot.make_message(msg['from'], mbody = '--------------------\nFetching notifications...', mtype='chat')
+    if not ReplyTo:
+        reply = bot.make_message(msg['from'])
+    else:
+        reply = bot.make_message(ReplyTo)
+
+    reply['body'] = '--------------------\nFetching notifications...'
+    reply['type'] = msg['type']
     reply.send()
 
     if param_list:
@@ -42,7 +48,13 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
     if not textline:
         textline = '--------------------\nNo notifications'
 
-    reply = bot.make_message(msg['from'], mbody = textline, mtype='chat')
+    if not ReplyTo:
+        reply = bot.make_message(msg['from'])
+    else:
+        reply = bot.make_message(ReplyTo)
+
+    reply['body'] = textline
+    reply['type'] = msg['type']
     reply.send()
 
     return True

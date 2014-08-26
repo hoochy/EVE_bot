@@ -12,6 +12,7 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
     old_list = list(bot.plugins['commands'])
 
     commands = []
+    secret_commands = []
 
     #Перебираем все файлы из папки plugins
     for fname in os.listdir('plugins/'):
@@ -25,6 +26,13 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
                 plugins = __import__('plugins.'+plugin_name)
                 #Достаем плагин с переменной
                 commands.append(plugin_name)
+                #проверим плагин на наличие признака секретность (доступен не всем)
+                try:
+                    module = getattr(plugins,plugin_name)
+                    if module.secret():
+                        secret_commands.append(plugin_name)
+                except:
+                    pass
 
     bot.plugins = {'storage':plugins, 'commands':commands}
 
@@ -39,7 +47,16 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
     if not miss_list and not new_list:
         textline = textline + 'No changes'
 
-    reply = bot.make_message(msg['from'], mbody = textline, mtype='chat')
+    if not ReplyTo:
+        reply = bot.make_message(msg['from'])
+    else:
+        reply = bot.make_message(ReplyTo)
+
+    reply['body'] = textline
+    reply['type'] = msg['type']
     reply.send()
 
+    return True
+
+def secret():
     return True

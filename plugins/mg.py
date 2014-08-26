@@ -40,10 +40,22 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
         form['title'] = 'Group management'
 
         reply.send()
+    else:
+        if not ReplyTo:
+            reply = bot.make_message(msg['from'])
+        else:
+            reply = bot.make_message(ReplyTo)
+
+        reply['body'] = 'Group not specified!'
+        reply['type'] = msg['type']
+        reply.send()
 
     return True
 
 def help():
     return '--------------------\nPlugin provides management for groups\nusage:\n\
-            mg <groupname>- open form\n\'' \
-           'group with empty list will be deleted'
+            mg <groupname> - open form\n\
+            group with empty list will be deleted'
+
+def secret():
+    return True

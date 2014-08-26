@@ -19,18 +19,34 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
         #получим список групп
         group_db = bot.bases['group_db']
         item = group_db.get_value_by_ID(group).decode()
-        bcmessage = ' '.join(param_list[1:])
+        bcmessage = 'Broadcast from '+ msg['from'].bare + '\n' + ' '.join(param_list[1:])
         if item:
             items = item.split(';')
             for item in items:
                     toJID = sleekxmpp.JID(jid=item + '@broadcast.jb.legionofdeath.ru')
                     reply = bot.make_message(toJID, bcmessage, mtype='normal')
                     reply.send()
+
+            #отчитаемся
+            if not ReplyTo:
+                reply = bot.make_message(msg['from'])
+            else:
+                reply = bot.make_message(ReplyTo)
+            reply['body'] = 'Сделан бродкаст группе ' + group
+            reply['type'] = msg['type']
+            reply.send()
         else:
-            msg.reply("Group <" + group + "> not found").send()
+            if not ReplyTo:
+                reply = bot.make_message(msg['from'])
+            else:
+                reply = bot.make_message(ReplyTo)
+            reply['body'] = "Group <" + group + "> not found"
+            reply['type'] = msg['type']
+            reply.send()
+
     else:
         #параметров не передали, откроем форму
-        reply = bot.make_message(msg['from'], msubject = 'BBBroadcast')
+        reply = bot.make_message(msg['from'], msubject = 'Broadcast')
         form = reply['form']
 
         fields = collections.OrderedDict()

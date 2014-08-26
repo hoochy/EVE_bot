@@ -70,7 +70,7 @@ def ttt():
 def loadPlugins():
 
     commands = []
-
+    secret_commands = []
     #Перебираем все файлы из папки plugins
     for fname in os.listdir('plugins/'):
         #Если файл заканчивается на '.py'
@@ -83,9 +83,17 @@ def loadPlugins():
                 plugins = __import__('plugins.'+plugin_name)
                 #Достаем плагин с переменной
                 commands.append(plugin_name)
+                #проверим плагин на наличие признака секретность (доступен не всем)
+                try:
+                    module = getattr(plugins,plugin_name)
+                    if module.secret():
+                        secret_commands.append(plugin_name)
+                except:
+                    pass
+
 
     #Возвращаем ассоциативный словарь
-    return {'storage':plugins, 'commands':commands}
+    return {'storage':plugins, 'commands':commands, 'secret_commands':secret_commands}
 
 options = {}
 
@@ -145,6 +153,12 @@ if ReadConfig(options):
         #
         # if xmpp.connect(('talk.google.com', 5222)):
         #     ...
+
+        #подключаемся к конфе
+        #TODO комнату запихать в ини файл
+        xmpp.plugin['xep_0045'].joinMUC('veryindustrialcorp@conference.jb.legionofdeath.ru', xmpp.nick)
+
+
         xmpp.process(block = False)
         #xmpp.schedule('testschedule', 120, ttt,repeat = True)
         print("Bot started")

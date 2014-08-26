@@ -31,15 +31,15 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
     else:
         param_list = ()
 
-    textline = '\nFetching mails...'
     if not ReplyTo:
-        reply = bot.make_message(msg['from'], mbody = textline, mtype='chat')
-        reply.send()
+        reply = bot.make_message(msg['from'])
     else:
-        if 'room' in ReplyTo and 'mtype' in ReplyTo:
-            bot.sendMessage(ReplyTo['room'], textline, mtype = ReplyTo['mtype'])
-        else:
-            return False
+        reply = bot.make_message(ReplyTo)
+
+    reply['body'] = '\nFetching mails...'
+    reply['type'] = msg['type']
+    reply.send()
+
 
     if param_list:
         #есть параметры. отдельно обработаем CTA
@@ -53,13 +53,13 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
         textline = '\nNo mails!'
 
     if not ReplyTo:
-        reply = bot.make_message(msg['from'], mbody = textline, mtype='chat')
-        reply.send()
+        reply = bot.make_message(msg['from'])
     else:
-        if 'room' in ReplyTo and 'mtype' in ReplyTo:
-            bot.sendMessage(ReplyTo['room'], textline, mtype = ReplyTo['mtype'])
-        else:
-            return False
+        reply = bot.make_message(ReplyTo)
+
+    reply['body'] = textline
+    reply['type'] = msg['type']
+    reply.send()
 
     return True
 
@@ -71,21 +71,21 @@ def help():
 def get_mails():
 
     global localbot
-    line = '-'*40
+    line = '-'*80
     #выводит письма
     result2 = localbot.eve.auth.account.Characters()
 
     news_line = []
     for character in result2.characters:
         MailID = localbot.eve.auth.char.MailMessages(characterID=character.characterID)
-        count = 0
+        count = 1
         for RowID in MailID.messages:
             toCorpOrAllianceID = string_format(RowID.toCorpOrAllianceID)
-            if toCorpOrAllianceID:
+            if toCorpOrAllianceID == '1411711376':
                 MailBody = get_mail_body_by_ID(characterID = character.characterID, mailID = RowID.messageID)
-                news_line.append(remove_tags(line + '\nTitle = ' + string_format(RowID.title) + '\n' + line +
+                news_line.append('Письмо № ' + string_format(count) + '\n' + remove_tags(line + '\nTitle = ' + string_format(RowID.title) + '\n' + line +
                         '\nDate = ' + string_format(datetime.datetime.fromtimestamp(RowID.sentDate)) +
-                        '\n' + line +  "\n" + MailBody))
+                        '\n' + line +  "\n" + MailBody)+ '\n\n' )
 
                 count += 1
             if count == 10:

@@ -7,6 +7,9 @@ class EchoBot(sleekxmpp.ClientXMPP):
     def __init__(self, jid, password):
         sleekxmpp.ClientXMPP.__init__(self, jid, password)
 
+        #запомним свое имя
+        self.nick = self.boundjid.user
+
         # The session_start event will be triggered when
         # the bot establishes its connection with the server
         # and the XML streams are ready for use. We want to
@@ -51,7 +54,11 @@ class EchoBot(sleekxmpp.ClientXMPP):
                    for stanza objects and the Message stanza to see
                    how it may be used.
         """
-        if msg['type'] in ('chat', 'normal'):
+        #свои сообщения в групчатах сразу игнорим
+        if msg['mucnick'] == self.nick:
+            return
+
+        if msg['type'] in ('chat', 'normal', 'groupchat'):
 
             if 'die!' in msg['body']:
                 self._disconnect()
@@ -65,9 +72,28 @@ class EchoBot(sleekxmpp.ClientXMPP):
                 param = temp_list[1:]
             if command in self.plugins['commands']:
                 module = getattr(self.plugins['storage'],command)
-                module.exec(bot = self, msg = msg, ReplyTo = None, auth = None, param = param)
+                #проверим команду на доступность всем
+                try:
+                    secret = module.secret()
+                except:
+                    secret = False
+
+                #если сообщение из комнаты, заполним ReplyTo
+                if msg['mucroom']:
+                    ReplyTo = sleekxmpp.JID(msg['mucroom'])
+                else:
+                    ReplyTo = None
+
+                if secret and self.is_admin(msg['from']):
+                    module.exec(bot = self, msg = msg, ReplyTo = ReplyTo, auth = None, param = param)
+                elif secret and (not self.is_admin(msg['from'])):
+                    msg.reply("Access denied to command \n%(body)s" % msg).send()
+                elif not secret:
+                    module.exec(bot = self, msg = msg, ReplyTo = ReplyTo, auth = None, param = param)
+
             else:
-                msg.reply("Thanks for sending\n%(body)s" % msg).send()
+                if not msg['type'] == 'groupchat':
+                    msg.reply("Thanks for sending\n%(body)s" % msg).send()
 
         return
 
@@ -81,9 +107,12 @@ class EchoBot(sleekxmpp.ClientXMPP):
                 for item in items:
                     toJID = sleekxmpp.JID(jid=item + '@broadcast.jb.legionofdeath.ru')
                     #toJID = sleekxmpp.JID('test@broadcast.jb.legionofdeath.ru')
-                    reply = self.make_message(toJID, msg['form']['values']['Broadcast'], mtype='normal')
+                    reply = self.make_message(toJID, 'Broadcast from '+ msg['from'].bare + '\n' + msg['form']['values']['Broadcast'], mtype='normal')
                     #reply = self.make_message(toJID, 'fgh', mtype='normal')
                     reply.send()
+
+                #отчитаемся о посылке бродкаста
+                self.report(msg, 'Сделан бродкаст группе ' + msg['form']['values']['Group'])
             elif "GroupContent" in msg['form']['values']:
 
                 group = msg['form']['values']['Group']
@@ -92,7 +121,24 @@ class EchoBot(sleekxmpp.ClientXMPP):
                 #если контент пустой, группу надо удалить
                 if group_content:
                     group_db.set_value_by_ID(group, group_content)
-                    msg.reply("Group " + group + " now set to <" + group_content +">").send()
+                    self.report(msg, "Group " + group + " now set to <" + group_content +">")
                 else:
                     group_db._db_base.__delitem__(group)
-                    msg.reply("Group " + group + " now deleted").send()
+                    self.report(msg, "Group " + group + " now deleted")
+
+    def is_admin(self, JID):
+        if JID.user == 'hoochy' or JID.user == 'kareriii' or JID.user == 'aungverdal':
+            return True
+        #elif '@conference.' in JID.full and ('hoochy' in JID.full or 'kareriii' in JID.full or 'aungverdal' in JID.full):
+        #    return True
+        else:
+            return False
+
+    def report(self, msg, body):
+        if msg['mucroom']:
+            ReplyTo = sleekxmpp.JID(msg['mucroom'])
+        else:
+            ReplyTo = msg['from']
+
+        reply = self.make_message(ReplyTo, body, mtype = msg['type'])
+        reply.send()

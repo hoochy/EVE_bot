@@ -24,9 +24,20 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
         else:
             textline = '--------------------\nPlugin < ' + name + '> not found!'
     else:
-        textline = '--------------------\nCommands: \n' + '\n'.join(bot.plugins['commands'])
+        #проверим отправителя на причастность к элите, если нет, список секретных команд прячем
+        if bot.is_admin(msg['from']):
+            textline = '--------------------\nCommands: \n' + '\n'.join(bot.plugins['commands'])
+        else:
+            difference = set(bot.plugins['commands']) - set(bot.plugins['secret_commands'])
+            textline = '--------------------\nCommands: \n' + '\n'.join(difference)
 
-    reply = bot.make_message(msg['from'], mbody = textline, mtype='chat')
+    if not ReplyTo:
+        reply = bot.make_message(msg['from'])
+    else:
+        reply = bot.make_message(ReplyTo)
+
+    reply['body'] = textline
+    reply['type'] = msg['type']
     reply.send()
 
     return True
