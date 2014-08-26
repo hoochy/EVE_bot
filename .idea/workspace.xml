@@ -28,7 +28,7 @@
     <file path="/jabber_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1409045359247" ignored="false" />
     <file path="/" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389028171836" ignored="false" />
     <file path="/eve.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1397163265467" ignored="false" />
-    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1409046568284" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1409046637228" ignored="false" />
     <file path="/main.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1409040225291" ignored="false" />
     <file path="/config.ini" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1408357250119" ignored="false" />
     <file path="/ReloadPlugins.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398590967158" ignored="false" />
@@ -564,7 +564,11 @@
       <created>1409046570780</created>
       <updated>1409046570780</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="some refactoring">
+      <created>1409046641659</created>
+      <updated>1409046641659</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
