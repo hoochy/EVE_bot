@@ -2,22 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5f09c2-569d-4125-8482-01a72f3b90f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/available plugins/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/bc_list.py" />
-      <change type="MOVED" beforePath="C:\Users\hoochy\PycharmProjects\EVEbot\plugins\get_alliances_list.py" afterPath="$PROJECT_DIR$/available plugins/get_alliances_list.py" />
-      <change type="MOVED" beforePath="C:\Users\hoochy\PycharmProjects\EVEbot\plugins\get_solarsystems_list.py" afterPath="$PROJECT_DIR$/available plugins/get_solarsystems_list.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/ReloadPlugins.py" afterPath="$PROJECT_DIR$/plugins/ReloadPlugins.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/bc.py" afterPath="$PROJECT_DIR$/plugins/bc.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.ini" afterPath="$PROJECT_DIR$/config.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/get_mail.py" afterPath="$PROJECT_DIR$/plugins/get_mail.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/get_notifications.py" afterPath="$PROJECT_DIR$/plugins/get_notifications.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/groups.db.bak" afterPath="$PROJECT_DIR$/groups.db.bak" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/groups.db.dat" afterPath="$PROJECT_DIR$/groups.db.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/groups.db.dir" afterPath="$PROJECT_DIR$/groups.db.dir" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/help.py" afterPath="$PROJECT_DIR$/plugins/help.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jabber_bot.py" afterPath="$PROJECT_DIR$/jabber_bot.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/mg.py" afterPath="$PROJECT_DIR$/plugins/mg.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EVEbot.iws" />
@@ -44,7 +28,7 @@
     <file path="/jabber_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1409045359247" ignored="false" />
     <file path="/" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389028171836" ignored="false" />
     <file path="/eve.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1397163265467" ignored="false" />
-    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1409044193870" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1409046568284" ignored="false" />
     <file path="/main.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1409040225291" ignored="false" />
     <file path="/config.ini" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1408357250119" ignored="false" />
     <file path="/ReloadPlugins.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398590967158" ignored="false" />
@@ -90,7 +74,7 @@
       <file leaf-file-name="jabber_bot.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jabber_bot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="25" selection-start="2711" selection-end="2711" vertical-scroll-proportion="0.2245223">
+            <state line="80" column="25" selection-start="2711" selection-end="2711" vertical-scroll-proportion="0.22523962">
               <folding>
                 <element signature="e#22#32#0" expanded="true" />
                 <element signature="e#3547#5029#0" expanded="false" />
@@ -576,7 +560,11 @@
       <created>1408365836554</created>
       <updated>1408365836554</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="some refactoring">
+      <created>1409046570780</created>
+      <updated>1409046570780</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -603,12 +591,13 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.6008538" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18303095" sideWeight="0.69648564" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3035144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18303095" sideWeight="0.6958378" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30416223" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2828175" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -617,7 +606,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -665,7 +653,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="group base" />
+    <option name="LAST_COMMIT_MESSAGE" value="some refactoring" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -690,6 +678,7 @@
     <MESSAGE value="plugin system, help system" />
     <MESSAGE value="broadcast plugins" />
     <MESSAGE value="group base" />
+    <MESSAGE value="some refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -813,7 +802,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jabber_bot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="25" selection-start="2711" selection-end="2711" vertical-scroll-proportion="0.2245223">
+        <state line="80" column="25" selection-start="2711" selection-end="2711" vertical-scroll-proportion="0.22523962">
           <folding>
             <element signature="e#22#32#0" expanded="true" />
             <element signature="e#3547#5029#0" expanded="false" />
