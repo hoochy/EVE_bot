@@ -62,10 +62,10 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
     reply.send()
 
     return True
-
+{}
 def help():
     return '--------------------\nPlugin provides list of alliance mails \nusage:\n\
-            get_mail - list of recent 10 mails\n\
+            get_mail - list of recent 5 mails\n\
             get_mail CTA ...- list of active CTA ...\n'
 
 def get_mails():
@@ -79,16 +79,24 @@ def get_mails():
     for character in result2.characters:
         MailID = localbot.eve.auth.char.MailMessages(characterID=character.characterID)
         count = 1
+        #составим словарь из идентификатора и даты
+        mailIDs = {}
         for RowID in MailID.messages:
+            mailIDs[RowID.sentDate] = RowID
+
+        SortedIDs = sorted(mailIDs, reverse=True)
+        
+        for Item in SortedIDs:
+            RowID = mailIDs[Item]
             toCorpOrAllianceID = string_format(RowID.toCorpOrAllianceID)
             if toCorpOrAllianceID == '1411711376':
                 MailBody = get_mail_body_by_ID(characterID = character.characterID, mailID = RowID.messageID)
                 news_line.append('Письмо № ' + string_format(count) + '\n' + remove_tags(line + '\nTitle = ' + string_format(RowID.title) + '\n' + line +
-                        '\nDate = ' + string_format(datetime.datetime.fromtimestamp(RowID.sentDate)) +
+                        '\nDate = ' + string_format(datetime.datetime.utcfromtimestamp(RowID.sentDate)) +
                         '\n' + line +  "\n" + MailBody)+ '\n\n' )
 
                 count += 1
-            if count == 10:
+            if count >= 6:
                 break
 
     return news_line

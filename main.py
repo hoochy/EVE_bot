@@ -62,6 +62,13 @@ def ReadConfig(options):
         return False
     options['DB_GROUPS'] = config.get('DB','DB_GROUPS')
 
+    if config.has_option('MUC','mucnick') and config.has_option('MUC','rooms'):
+        options['mucnick'] = config.get('MUC','mucnick')
+        options['rooms'] = config.get('MUC','rooms').split(',')
+    else:
+        options['mucnick'] = 'death'
+        options['rooms'] = ()
+
     return True
 
 def ttt():
@@ -128,6 +135,7 @@ if ReadConfig(options):
     xmpp.register_plugin('xep_0060') # PubSub
     xmpp.register_plugin('xep_0199') # XMPP Ping
     xmpp.register_plugin('xep_0045') # XMPP MUC
+    xmpp.register_plugin('xep_0012') # last activity
     # If you are working with an OpenFire server, you may need
     # to adjust the SSL version used:
     # xmpp.ssl_version = ssl.PROTOCOL_SSLv3
@@ -144,6 +152,10 @@ if ReadConfig(options):
     #передаем список плагинов
     xmpp.plugins = loadPlugins()
 
+    #передаем боту список комнат для присутсвия и имя в конфах
+    xmpp.mucnick = options['mucnick']
+    xmpp.rooms = options['rooms']
+
     # Connect to the XMPP server and start processing XMPP stanzas.
     if xmpp.connect():
         # If you do not have the dnspython library installed, you will need
@@ -154,10 +166,14 @@ if ReadConfig(options):
         # if xmpp.connect(('talk.google.com', 5222)):
         #     ...
 
-        #подключаемся к конфе
-        #TODO комнату запихать в ини файл
-        xmpp.plugin['xep_0045'].joinMUC('veryindustrialcorp@conference.jb.legionofdeath.ru', xmpp.nick)
-
+        #подключаемся к конфам
+        #xmpp.plugin['xep_0045'].joinMUC('legionofxxdeathxx@conference.jb.legionofdeath.ru', xmpp.nick)
+        #xmpp.plugin['xep_0045'].joinMUC('veryindustrialcorp@conference.jb.legionofdeath.ru', xmpp.nick)
+        for room in xmpp.rooms:
+            xmpp.plugin['xep_0045'].joinMUC(room + '@conference.jb.legionofdeath.ru', xmpp.mucnick)
+            #обработчик пресенсе в комнатах, для сопоставления с реальным джидом
+            xmpp.add_event_handler("muc::%s@conference.jb.legionofdeath.ru::presence" % room,
+                           xmpp.muc_presense)
 
         xmpp.process(block = False)
         #xmpp.schedule('testschedule', 120, ttt,repeat = True)

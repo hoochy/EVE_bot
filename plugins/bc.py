@@ -19,7 +19,9 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
         #получим список групп
         group_db = bot.bases['group_db']
         item = group_db.get_value_by_ID(group).decode()
-        bcmessage = 'Broadcast from '+ msg['from'].bare + '\n' + ' '.join(param_list[1:])
+
+        bc_from = bot.JID_to_realJID(msg).bare
+        bcmessage = 'Broadcast from '+ bc_from + '\n' + ' '.join(param_list[1:])
         if item:
             items = item.split(';')
             for item in items:
@@ -83,3 +85,4 @@ def help():
     return '--------------------\nPlugin provides broadcast messages for groups\nusage:\n\
             bc - open form\n\
             bc <group> <message> - broadcast <message> to <group>'
+

@@ -14,96 +14,54 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
 
     global localbot
 
-    if not bot or not msg:
-        return False
+    if not bot:
+        return ''
 
     localbot = bot
-
-    #проверим пришли ли параметры
-    if "param" in kwargs:
-        param_list = kwargs['param']
-    else:
-        param_list = ()
-
-    if not ReplyTo:
-        reply = bot.make_message(msg['from'])
-    else:
-        reply = bot.make_message(ReplyTo)
-
-    reply['body'] = 'Fetching notifications...'
-    reply['type'] = msg['type']
-    reply.send()
-
-    if param_list:
-        #есть параметры. в параметрах мы ожидаем фильтры на типы нотификаций.
-        #в параметре должен быть список типов нотификаций
-        #заменим человечье представление на евовское по словарю
-        translator = notif_types()
-        filter = list(translator[type] for type in param_list if type in translator)
-        textline = '\n'.join(get_notifications(filter_type_id = filter))
-
-    else:
-        textline = 'Filter not specified!'
+    body = 'Auto fetching notifications...\n'
+    filter = ('87', '48', '75', '46')
+    textline = '\n'.join(get_notifications(filter_type_id = filter))
 
     if not textline:
-        textline = 'No notifications'
-    else:
-        textline = '\n' + textline
+        #textline = '--------------------\nNo notifications'
+        return ''
+    body = body + textline
 
-    if not ReplyTo:
-        reply = bot.make_message(msg['from'])
-    else:
-        reply = bot.make_message(ReplyTo)
-
-    reply['body'] = textline
-    reply['type'] = msg['type']
-    reply.send()
-
-    return True
+    return body
 
 def notif_types():
     #пока делаем только СБУ
     types = {}
     types['SBU'] = '87'
-    types['claim'] = '48'
-    types['POS'] = '75'
-    types['system'] = '46'
+    types['10'] = '10'
     return types
 
 def help():
-    return '--------------------\nPlugin provides list of emergency notifications\nusage:\n\
-            get_notifications - list of default notifications\n\
-            get_notifications type1 type2 ...- list of notifications of types type1 type2 ...\n\
-            \n\
-            Types:\n\
-            SBU - SBU under attack\n\
-            claim - SBU setled in system\n\
-            POS - POS under attack\n\
-            system - solar system turns vulnerable'
+    return '--------------------\nPlugin provides automatic list of emergency notifications. No manual usage.'
 
 def get_notifications(filter_type_id=()):
 
-   global localbot
-   #выводит все нотификации с телами для всех чаров по ключу авторизованному в auth
-   result2 = localbot.eve.auth.account.Characters()
+    global localbot
+    #выводит все нотификации с телами для всех чаров по ключу авторизованному в auth
+    result2 = localbot.eve.auth.account.Characters()
 
-   news_line = []
-   now = datetime.datetime.utcnow()
-   for character in result2.characters:
-       NotificatiosID = localbot.eve.auth.char.Notifications(characterID=character.characterID)
-       for RowID in NotificatiosID.notifications:
-           typeID = string_format(RowID.typeID)
-           if filter_type_id:
-               if (typeID not in filter_type_id):
-                   continue
-           delta = now - datetime.datetime.utcfromtimestamp(RowID.sentDate)
-           if delta.total_seconds() > 3600 * 48:
-               continue
-           NotificatiosBody = get_notification_body_by_ID(characterID = character.characterID, notificationID = RowID.notificationID, typeID = typeID)
-           #news_line.append((string_format(character.name) +  " Date = " + string_format(datetime.datetime.fromtimestamp(RowID.sentDate)) +  "\n" + "[" + NotificatiosBody + "]"))
-           news_line.append(NotificatiosBody.replace('%time_delta%', localbot.one_day_delta_to_str(delta.total_seconds())))
+    news_line = []
+    now = datetime.datetime.utcnow()
+    for character in result2.characters:
+        NotificatiosID = localbot.eve.auth.char.Notifications(characterID=character.characterID)
+        for RowID in NotificatiosID.notifications:
+            typeID = string_format(RowID.typeID)
+            if filter_type_id:
+                if (typeID not in filter_type_id):
+                    continue
+            delta = now - datetime.datetime.utcfromtimestamp(RowID.sentDate)
+            if delta.total_seconds() > 3600:
+                continue
+            NotificatiosBody = get_notification_body_by_ID(characterID = character.characterID, notificationID = RowID.notificationID, typeID = typeID)
+            #news_line.append((string_format(character.name) +  " Date = " + string_format(datetime.datetime.fromtimestamp(RowID.sentDate)) +  "\n" + "[" + NotificatiosBody + "]"))
+            news_line.append(NotificatiosBody.replace('%time_delta%', localbot.one_day_delta_to_str(delta.total_seconds())))
 
-   return news_line
+    return news_line
 
 def convert_ID_to_human_readable(dict_param):
 
@@ -163,6 +121,7 @@ def convert_ID_to_human_readable(dict_param):
             except:
                 dict_param['moonID'] = 'неопределено'
 
+
 def decode_notification(row_data, typeID):
     global localbot
     #формирование сообщение по типу сообщения из тела нотификации
@@ -220,3 +179,10 @@ def get_notification_body_by_ID(characterID, notificationID, typeID):
     result = localbot.eve.auth.char.NotificationTexts(characterID=characterID, IDs=string_format(notificationID))
     message = decode_notification(result.notifications[0].data, typeID)
     return message
+
+def schedule():
+
+    return 1800
+
+def secret():
+    return True
