@@ -95,9 +95,9 @@ class EchoBot(sleekxmpp.ClientXMPP):
             if 'die!' in msg['body']:
                 self._disconnect()
 
-            if 'karer' in msg['body']:
-                msg.reply('Карер - черный властелин \о/').send()
-                return
+            #if 'karer' in msg['body']:
+            #    msg.reply('Карер - черный властелин \о/').send()
+            #    return
 
             #получим первое слово сообщения
             temp_list = msg['body'].split(' ')
