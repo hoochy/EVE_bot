@@ -1,14 +1,5 @@
 __author__ = 'hoochy'
 
-def string_format(value):
-
-    if type(value) == float:
-        return "%0.0f" % value
-    elif type(value) == int:
-        return "%d" % value
-    else:
-        return "%s" % value
-
 def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
 
     if not bot or not msg:

@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5f09c2-569d-4125-8482-01a72f3b90f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/evestat.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/evestat.py" afterPath="$PROJECT_DIR$/plugins/evestat.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/groups.db.bak" afterPath="$PROJECT_DIR$/groups.db.bak" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/groups.db.dat" afterPath="$PROJECT_DIR$/groups.db.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/groups.db.dir" afterPath="$PROJECT_DIR$/groups.db.dir" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jabber_bot.py" afterPath="$PROJECT_DIR$/jabber_bot.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EVEbot.iws" />
@@ -33,7 +32,7 @@
     <file path="/jabber_bot.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1410543221048" ignored="false" />
     <file path="/" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1389028171836" ignored="false" />
     <file path="/eve.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1397163265467" ignored="false" />
-    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1410774056591" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1410794239771" ignored="false" />
     <file path="/main.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1410191941897" ignored="false" />
     <file path="/config.ini" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1410184194564" ignored="false" />
     <file path="/ReloadPlugins.py" changelist="1c5f09c2-569d-4125-8482-01a72f3b90f4" time="1398590967158" ignored="false" />
@@ -87,7 +86,7 @@
       <file leaf-file-name="evestat.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugins/evestat.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="35" selection-start="531" selection-end="531" vertical-scroll-proportion="0.43243244">
+            <state line="2" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="0.054226477">
               <folding />
             </state>
           </provider>
@@ -618,7 +617,11 @@
       <created>1410336160609</created>
       <updated>1410336160609</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="new plugin evestat">
+      <created>1410794246059</created>
+      <updated>1410794246059</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -642,15 +645,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976973" sideWeight="0.6716763" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.6008538" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19156884" sideWeight="0.6975506" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3024494" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19156884" sideWeight="0.696905" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30309498" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28221512" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -659,7 +663,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -707,7 +710,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="new plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="new plugin evestat" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -734,6 +737,7 @@
     <MESSAGE value="group base" />
     <MESSAGE value="some refactoring" />
     <MESSAGE value="new plugin" />
+    <MESSAGE value="new plugin evestat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -851,7 +855,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/evestat.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="35" selection-start="531" selection-end="531" vertical-scroll-proportion="0.43243244">
+        <state line="2" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="0.054226477">
           <folding />
         </state>
       </provider>
