@@ -42,7 +42,10 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
         filter = list(translator[type] for type in param_list if type in translator)
         #делаем список списков плоским
         filter = [type_id for type_ids in filter for type_id in type_ids]
-        textline = '\n'.join(get_notifications(filter_type_id = filter))
+        try:
+            textline = '\n'.join(get_notifications(filter_type_id = filter))
+        except Exception as exception:
+            print(exception)
 
     else:
         textline = 'Filter not specified!'
@@ -66,7 +69,7 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
 def notif_types():
     types = {}
     types['SBU'] = ['87']
-    types['claim'] = ['41', '43', '46', '48']
+    types['claim'] = ['41', '43', '46', '48', '86', '88']
     types['POS'] = ['75']
     return types
 
@@ -125,7 +128,6 @@ def convert_ID_to_human_readable(dict_param):
     global localbot
     #превращаем ID в представления
     for key in dict_param.keys():
-
         if 'AllianceID' in key or 'allianceID' in key:
             #проверим, может ID уже заменен на имя
             if dict_param[key].isdigit():
@@ -137,7 +139,7 @@ def convert_ID_to_human_readable(dict_param):
                 dict_param[key] = localbot.bases['solar_system_db'].get_value_by_ID(dict_param[key]).decode()
 
         #отдельно отработаем ситуацию когда есть ID чара, установим имя корпорации и альянса из инфо чара
-        if 'aggressorID' in key:
+        if 'aggressorID' in key and dict_param[key] != 'null':
             result = localbot.eve.api.eve.CharacterInfo(characterID = dict_param[key])
             #если корпа не в альянсе, апи не возвращает поле alliance
             try:
@@ -210,7 +212,7 @@ def decode_notification(row_data, typeID):
 
         #формируем сообщение
         if typeID == '41':
-            template = 'В системе {solarSystemID} %time_delta% был потерян клайм альянса {allianceID}.'
+            template = 'ТРЕВОГА! В системе {solarSystemID} %time_delta% был потерян клайм альянса {allianceID}.'
         elif typeID == '43':
             template = 'В системе {solarSystemID} %time_delta% был поднят клайм альянса {allianceID}.'
         elif typeID == '46':
@@ -218,9 +220,15 @@ def decode_notification(row_data, typeID):
         elif typeID == '48':
             template = 'В системе {solarSystemID} %time_delta% установлено SBU альянса {allianceID}'
         elif typeID == '75':
-            template = 'По адресу {moonID}, %time_delta%, {aggressorID} из корпорации {aggressorCorpID} ( {aggressorAllianceID} ) атаковал {typeID} Состояние - {shieldValue}:{armorValue}:{hullValue}'
+            template = 'По адресу {moonID}, %time_delta%, {aggressorID} из корпорации {aggressorCorpID} ({aggressorAllianceID}) атаковал {typeID} Состояние - {shieldValue}:{armorValue}:{hullValue}'
+        elif typeID == '86':
+            template = 'ТРЕВОГА! В системе {solarSystemID} %time_delta% атаковано TCU. Атаковал {aggressorID} из корпорации {aggressorCorpID} ({aggressorAllianceID}). Состояние TCU - {shieldValue}:{armorValue}:{hullValue}'
         elif typeID == '87':
-            template = 'В системе {solarSystemID} %time_delta% атаковано SBU. Атаковал {aggressorID} из корпорации {aggressorCorpID} ( {aggressorAllianceID} ). Состояние SBU - {shieldValue}:{armorValue}:{hullValue}'
+            template = 'В системе {solarSystemID} %time_delta% атаковано SBU. Атаковал {aggressorID} из корпорации {aggressorCorpID} ({aggressorAllianceID}). Состояние SBU - {shieldValue}:{armorValue}:{hullValue}'
+        elif typeID == '88' and dict_param['aggressorID'] == 'null':
+            template = 'В системе {solarSystemID} %time_delta% вышел из реинфорса iHUB. Состояние - {shieldValue}:{armorValue}:{hullValue}'
+        elif typeID == '88':
+            template = 'В системе {solarSystemID} %time_delta% атакован iHUB. Атаковал {aggressorID} из корпорации {aggressorCorpID} ({aggressorAllianceID}). Состояние iHUB - {shieldValue}:{armorValue}:{hullValue}'
         else:
             template = row_data
 
