@@ -81,8 +81,7 @@ def help():
             Types:\n\
             SBU - SBU under attack\n\
             claim - SBU setled in system\n\
-            POS - POS under attack\n\
-            system - solar system turns vulnerable'
+            POS - POS under attack'
 
 def get_notifications(filter_type_id=[]):
     global localbot
