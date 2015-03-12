@@ -81,45 +81,43 @@ def help():
             system - solar system turns vulnerable'
 
 def get_notifications(filter_type_id=[]):
+    global localbot
+    #выводит все нотификации с телами для всех чаров по ключу авторизованному в auth
+    result2 = localbot.eve.auth.account.Characters()
 
-   global localbot
-   #выводит все нотификации с телами для всех чаров по ключу авторизованному в auth
-   result2 = localbot.eve.auth.account.Characters()
+    news_line = []
+    now = datetime.datetime.utcnow()
+    for character in result2.characters:
+        NotificatiosID = localbot.eve.auth.char.Notifications(characterID=character.characterID)
+        for RowID in NotificatiosID.notifications:
+            typeID = string_format(RowID.typeID)
+            if filter_type_id:
+                if (typeID not in filter_type_id):
+                    continue
+            delta = now - datetime.datetime.utcfromtimestamp(RowID.sentDate)
+            if delta.total_seconds() > 3600 * 48:
+                continue
+            NotificatiosBody = get_notification_body_by_ID(characterID = character.characterID, notificationID = RowID.notificationID, typeID = typeID, eve = localbot.eve)
+            news_line.append(NotificatiosBody.replace('%time_delta%', localbot.one_day_delta_to_str(delta.total_seconds())))
 
-   news_line = []
-   now = datetime.datetime.utcnow()
-   for character in result2.characters:
-       NotificatiosID = localbot.eve.auth.char.Notifications(characterID=character.characterID)
-       for RowID in NotificatiosID.notifications:
-           typeID = string_format(RowID.typeID)
-           if filter_type_id:
-               if (typeID not in filter_type_id):
-                   continue
-           delta = now - datetime.datetime.utcfromtimestamp(RowID.sentDate)
-           if delta.total_seconds() > 3600 * 48:
-               continue
-           NotificatiosBody = get_notification_body_by_ID(characterID = character.characterID, notificationID = RowID.notificationID, typeID = typeID, eve = localbot.eve)
-           news_line.append(NotificatiosBody.replace('%time_delta%', localbot.one_day_delta_to_str(delta.total_seconds())))
+    #отработаем список еве аккаунтов сохраненых в боте
+    for eveaccount in localbot.multieve:
+        #print(eveaccount)
+        result2 = eveaccount['eve'].auth.account.Characters()
+        for character in result2.characters:
+            NotificatiosID = eveaccount['eve'].auth.char.Notifications(characterID=character.characterID)
+            for RowID in NotificatiosID.notifications:
+                typeID = string_format(RowID.typeID)
+                if filter_type_id:
+                    if (typeID not in filter_type_id):
+                        continue
+                delta = now - datetime.datetime.utcfromtimestamp(RowID.sentDate)
+                if delta.total_seconds() > 3600 * 48:
+                    continue
+                NotificatiosBody = get_notification_body_by_ID(characterID = character.characterID, notificationID = RowID.notificationID, typeID = typeID, eve = eveaccount['eve'])
+                news_line.append(NotificatiosBody.replace('%time_delta%', localbot.one_day_delta_to_str(delta.total_seconds())))
 
-   #отработаем список еве аккаунтов сохраненых в боте
-   for eveaccount in localbot.multieve:
-
-       #print(eveaccount)
-       result2 = eveaccount['eve'].auth.account.Characters()
-       for character in result2.characters:
-           NotificatiosID = eveaccount['eve'].auth.char.Notifications(characterID=character.characterID)
-           for RowID in NotificatiosID.notifications:
-               typeID = string_format(RowID.typeID)
-               if filter_type_id:
-                   if (typeID not in filter_type_id):
-                       continue
-               delta = now - datetime.datetime.utcfromtimestamp(RowID.sentDate)
-               if delta.total_seconds() > 3600 * 48:
-                   continue
-               NotificatiosBody = get_notification_body_by_ID(characterID = character.characterID, notificationID = RowID.notificationID, typeID = typeID, eve = eveaccount['eve'])
-               news_line.append(NotificatiosBody.replace('%time_delta%', localbot.one_day_delta_to_str(delta.total_seconds())))
-
-   return news_line
+    return news_line
 
 def convert_ID_to_human_readable(dict_param):
 
