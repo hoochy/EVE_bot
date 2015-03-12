@@ -62,7 +62,6 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
     return True
 
 def notif_types():
-    #пока делаем только СБУ
     types = {}
     types['SBU'] = '87'
     types['claim'] = '48'
@@ -81,7 +80,7 @@ def help():
             POS - POS under attack\n\
             system - solar system turns vulnerable'
 
-def get_notifications(filter_type_id=()):
+def get_notifications(filter_type_id=[]):
 
    global localbot
    #выводит все нотификации с телами для всех чаров по ключу авторизованному в auth
