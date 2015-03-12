@@ -2,7 +2,6 @@ __author__ = 'hoochy'
 import datetime
 
 def string_format(value):
-
     if type(value) == float:
         return "%0.0f" % value
     elif type(value) == int:
@@ -11,36 +10,29 @@ def string_format(value):
         return "%s" % value
 
 def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
-
     global localbot
 
     if not bot:
         return ''
 
     localbot = bot
-    body = 'Auto fetching notifications...\n'
-    filter = ('87', '48', '75', '46')
-    textline = '\n'.join(get_notifications(filter_type_id = filter))
+    body = ''
+    filter = ('41', '43', '46', '48', '75', '86', '87', '88')
+
+    try:
+        textline = '\n'.join(get_notifications(filter_type_id = filter))
+    except Exception as exception:
+        print(exception)
 
     if not textline:
-        #textline = '--------------------\nNo notifications'
         return ''
-    body = body + textline
 
-    return body
-
-def notif_types():
-    #пока делаем только СБУ
-    types = {}
-    types['SBU'] = '87'
-    types['10'] = '10'
-    return types
+    return body + textline
 
 def help():
     return '--------------------\nPlugin provides automatic list of emergency notifications. No manual usage.'
 
-def get_notifications(filter_type_id=()):
-
+def get_notifications(filter_type_id = []):
     global localbot
 
     result2 = localbot.eve.auth.account.Characters()
@@ -97,7 +89,7 @@ def convert_ID_to_human_readable(dict_param):
                 dict_param[key] = localbot.bases['solar_system_db'].get_value_by_ID(dict_param[key]).decode()
 
         #отдельно отработаем ситуацию когда есть ID чара, установим имя корпорации и альянса из инфо чара
-        if 'aggressorID' in key:
+        if 'aggressorID' in key and dict_param[key] != 'null':
             result = localbot.eve.api.eve.CharacterInfo(characterID = dict_param[key])
             #если корпа не в альянсе, апи не возвращает поле alliance
             try:
@@ -169,14 +161,24 @@ def decode_notification(row_data, typeID):
         convert_ID_to_human_readable(dict_param)
 
         #формируем сообщение
-        if typeID == '87':
-            template = 'В системе {solarSystemID} %time_delta% атаковано SBU. Атаковал {aggressorID} из корпорации {aggressorCorpID} ( {aggressorAllianceID} ). Состояние SBU - {shieldValue}:{armorValue}:{hullValue}'
+        if typeID == '41':
+            template = 'ТРЕВОГА! В системе {solarSystemID} %time_delta% был потерян клайм альянса {allianceID}.'
+        elif typeID == '43':
+            template = 'В системе {solarSystemID} %time_delta% был поднят клайм альянса {allianceID}.'
+        elif typeID == '46':
+            template = 'Клайм в системе {solarSystemID} %time_delta% стал уязвим для атаки.'
         elif typeID == '48':
             template = 'В системе {solarSystemID} %time_delta% установлено SBU альянса {allianceID}'
         elif typeID == '75':
-            template = 'По адресу {moonID}, %time_delta%, {aggressorID} из корпорации {aggressorCorpID} ( {aggressorAllianceID} ) атаковал {typeID} Состояние - {shieldValue}:{armorValue}:{hullValue}'
-        elif typeID == '46':
-            template = 'Клайм в системе {solarSystemID} %time_delta% стал уязвим для атаки.'
+            template = 'По адресу {moonID}, %time_delta%, {aggressorID} из корпорации {aggressorCorpID} ({aggressorAllianceID}) атаковал {typeID} Состояние - {shieldValue}:{armorValue}:{hullValue}'
+        elif typeID == '86':
+            template = 'ТРЕВОГА! В системе {solarSystemID} %time_delta% атаковано TCU. Атаковал {aggressorID} из корпорации {aggressorCorpID} ({aggressorAllianceID}). Состояние TCU - {shieldValue}:{armorValue}:{hullValue}'
+        elif typeID == '87':
+            template = 'В системе {solarSystemID} %time_delta% атаковано SBU. Атаковал {aggressorID} из корпорации {aggressorCorpID} ({aggressorAllianceID}). Состояние SBU - {shieldValue}:{armorValue}:{hullValue}'
+        elif typeID == '88' and dict_param['aggressorID'] == 'null':
+            template = 'В системе {solarSystemID} %time_delta% вышел из реинфорса iHUB. Состояние - {shieldValue}:{armorValue}:{hullValue}'
+        elif typeID == '88':
+            template = 'В системе {solarSystemID} %time_delta% атакован iHUB. Атаковал {aggressorID} из корпорации {aggressorCorpID} ({aggressorAllianceID}). Состояние iHUB - {shieldValue}:{armorValue}:{hullValue}'
         else:
             template = row_data
 
@@ -186,7 +188,6 @@ def decode_notification(row_data, typeID):
     return row_data
 
 def get_notification_body_by_ID(characterID, notificationID, typeID, eve):
-
     global localbot
 
     #возвращает тело нитификации в виде строки по ключу авторизованному в auth, для сообщения с notificationID у чара characterID
@@ -197,12 +198,12 @@ def get_notification_body_by_ID(characterID, notificationID, typeID, eve):
     return message
 
 def schedule():
-
-    return 1800
+    return 60
 
 def secret():
     return True
 
 def rooms():
-    broadcast_rooms = ['alarm@conference.jb.legionofdeath.ru', 'veryindustrialcorp@conference.jb.legionofdeath.ru']
-    return broadcast_rooms
+    rooms = ['kbt@conference.jb.legionofdeath.ru']
+    return rooms
+    return ['alarm@conference.jb.legionofdeath.ru', 'veryindustrialcorp@conference.jb.legionofdeath.ru']
