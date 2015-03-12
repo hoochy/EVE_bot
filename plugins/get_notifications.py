@@ -40,6 +40,8 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
         #заменим человечье представление на евовское по словарю
         translator = notif_types()
         filter = list(translator[type] for type in param_list if type in translator)
+        #делаем список списков плоским
+        filter = [type_id for type_ids in filter for type_id in type_ids]
         textline = '\n'.join(get_notifications(filter_type_id = filter))
 
     else:
@@ -63,10 +65,10 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
 
 def notif_types():
     types = {}
-    types['SBU'] = '87'
-    types['claim'] = '48'
-    types['POS'] = '75'
-    types['system'] = '46'
+    types['SBU'] = ['87']
+    types['claim'] = ['48', '41']
+    types['POS'] = ['75']
+    types['system'] = ['46']
     return types
 
 def help():
