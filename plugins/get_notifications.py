@@ -66,9 +66,8 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
 def notif_types():
     types = {}
     types['SBU'] = ['87']
-    types['claim'] = ['48', '41']
+    types['claim'] = ['41', '43', '46', '48']
     types['POS'] = ['75']
-    types['system'] = ['46']
     return types
 
 def help():
@@ -212,6 +211,8 @@ def decode_notification(row_data, typeID):
         #формируем сообщение
         if typeID == '41':
             template = 'В системе {solarSystemID} %time_delta% был потерян клайм альянса {allianceID}.'
+        elif typeID == '43':
+            template = 'В системе {solarSystemID} %time_delta% был поднят клайм альянса {allianceID}.'
         elif typeID == '46':
             template = 'Клайм в системе {solarSystemID} %time_delta% стал уязвим для атаки.'
         elif typeID == '48':
