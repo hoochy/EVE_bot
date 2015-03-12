@@ -198,12 +198,10 @@ def get_notification_body_by_ID(characterID, notificationID, typeID, eve):
     return message
 
 def schedule():
-    return 60
+    return 1800
 
 def secret():
     return True
 
 def rooms():
-    rooms = ['kbt@conference.jb.legionofdeath.ru']
-    return rooms
     return ['alarm@conference.jb.legionofdeath.ru', 'veryindustrialcorp@conference.jb.legionofdeath.ru']
