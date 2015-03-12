@@ -83,7 +83,7 @@ def help():
             claim - SBU setled in system\n\
             POS - POS under attack'
 
-def get_notifications(filter_type_id=[]):
+def get_notifications(filter_type_id = []):
     global localbot
     #выводит все нотификации с телами для всех чаров по ключу авторизованному в auth
     result2 = localbot.eve.auth.account.Characters()
