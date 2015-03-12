@@ -210,14 +210,14 @@ def decode_notification(row_data, typeID):
         convert_ID_to_human_readable(dict_param)
 
         #формируем сообщение
-        if typeID == '87':
-            template = 'В системе {solarSystemID} %time_delta% атаковано SBU. Атаковал {aggressorID} из корпорации {aggressorCorpID} ( {aggressorAllianceID} ). Состояние SBU - {shieldValue}:{armorValue}:{hullValue}'
+        if typeID == '46':
+            template = 'Клайм в системе {solarSystemID} %time_delta% стал уязвим для атаки.'
         elif typeID == '48':
             template = 'В системе {solarSystemID} %time_delta% установлено SBU альянса {allianceID}'
         elif typeID == '75':
             template = 'По адресу {moonID}, %time_delta%, {aggressorID} из корпорации {aggressorCorpID} ( {aggressorAllianceID} ) атаковал {typeID} Состояние - {shieldValue}:{armorValue}:{hullValue}'
-        elif typeID == '46':
-            template = 'Клайм в системе {solarSystemID} %time_delta% стал уязвим для атаки.'
+        elif typeID == '87':
+            template = 'В системе {solarSystemID} %time_delta% атаковано SBU. Атаковал {aggressorID} из корпорации {aggressorCorpID} ( {aggressorAllianceID} ). Состояние SBU - {shieldValue}:{armorValue}:{hullValue}'
         else:
             template = row_data
 
