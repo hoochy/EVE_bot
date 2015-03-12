@@ -1,7 +1,5 @@
 __author__ = 'hoochy'
 
-import collections, sleekxmpp
-
 def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
 
     if not bot or not msg:

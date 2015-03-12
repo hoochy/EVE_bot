@@ -1,6 +1,7 @@
 __author__ = 'hoochy'
 import sys
 import sleekxmpp
+from sleekxmpp.xmlstream import ET
 
 class EchoBot(sleekxmpp.ClientXMPP):
 
@@ -37,16 +38,34 @@ class EchoBot(sleekxmpp.ClientXMPP):
             return
         module = getattr(self.plugins['storage'], plugin)
         body = module.exec(bot = self, msg = None, ReplyTo = None, auth = None, param = None)
+
+        #получим список комнат куда спамить
+        try:
+            rooms = module.rooms()
+            allrooms = False
+        except:
+            allrooms = True
+
         if not body:
             return
         body = '\n' + '*'*40 + '\n' + body + '\n' + '*'*40
         #бежим по комнатам где сидим
         for room in self.plugin['xep_0045'].rooms:
+            #print(allrooms)
+            #print(rooms)
+            if room == self.botroom + '@conference.jb.legionofdeath.ru':
+                continue
+
+            if not allrooms:
+                if not room in rooms:
+                    continue
+
             ReplyTo = sleekxmpp.JID(room)
             reply = self.make_message(ReplyTo)
             reply['body'] = body
             reply['type'] = 'groupchat'
             reply.send()
+
 
     def start(self, event):
         """
@@ -92,12 +111,10 @@ class EchoBot(sleekxmpp.ClientXMPP):
 
         if msg['type'] in ('chat', 'normal', 'groupchat'):
 
-            if 'die!' in msg['body']:
+            if 'die!' == msg['body']:
                 self._disconnect()
-
-            #if 'karer' in msg['body']:
-            #    msg.reply('Карер - черный властелин \о/').send()
-            #    return
+            elif 'зло' == msg['body']:
+                self.censor = True
 
             #получим первое слово сообщения
             temp_list = msg['body'].split(' ')
@@ -106,6 +123,19 @@ class EchoBot(sleekxmpp.ClientXMPP):
             param = None
             if len(temp_list) > 1:
                 param = temp_list[1:]
+            #будем сообщать о сообщениях боту в приват или о командах в конфах
+            if msg['type'] in ('chat', 'normal') or (msg['type'] == 'groupchat' and command in self.plugins['commands']):
+                ReplyTo = sleekxmpp.JID(self.botroom + '@conference.jb.legionofdeath.ru')
+                reply = self.make_message(ReplyTo)
+                if msg['type'] in ('chat', 'normal'):
+                    textline = 'Личное сообщение от ' + msg['from'].full + '\n' + msg['body']
+                else:
+                    textline = 'Команда в комнате ' + msg['mucroom'] + ' от ' + msg['from'].resource + '\n' + msg['body']
+
+                reply['body'] = textline
+                reply['type'] = 'groupchat'
+                reply.send()
+
             if command in self.plugins['commands']:
                 module = getattr(self.plugins['storage'],command)
                 #проверим команду на доступность всем
@@ -130,8 +160,9 @@ class EchoBot(sleekxmpp.ClientXMPP):
                     module.exec(bot = self, msg = msg, ReplyTo = ReplyTo, auth = None, param = param)
 
             else:
-                if not msg['type'] == 'groupchat':
-                    pass
+                pass
+                #if not msg['type'] == 'groupchat':
+                    #pass
                     #msg.reply("Thanks for sending\n%(body)s" % msg).send()
 
         return
@@ -147,7 +178,7 @@ class EchoBot(sleekxmpp.ClientXMPP):
                     toJID = sleekxmpp.JID(jid=item + '@broadcast.jb.legionofdeath.ru')
                     #toJID = sleekxmpp.JID('test@broadcast.jb.legionofdeath.ru')
 
-                    reply = self.make_message(toJID, 'Broadcast from '+ self.JID_to_realJID(msg).bare + '\n' + msg['form']['values']['Broadcast'], mtype='normal')
+                    reply = self.make_message(toJID, 'Broadcast from '+ self.JID_to_realJID(msg).bare + ' to ' + item + '\n' + msg['form']['values']['Broadcast'], mtype='normal')
                     #reply = self.make_message(toJID, 'fgh', mtype='normal')
                     reply.send()
 
@@ -167,8 +198,74 @@ class EchoBot(sleekxmpp.ClientXMPP):
                     self.report(msg, "Group " + group + " now deleted")
 
     def muc_presense(self, presence):
-        if presence['muc']['nick'] != self.nick:
-            self.dict_of_real_JID[presence['muc']['room'] + '/' + presence['muc']['nick']] = presence['muc']['jid'].bare
+
+        #presence['type'] 'available' 'unavailable'
+
+        if presence['muc']['nick'] != self.mucnick:
+            if presence['type'] == 'unavailable':
+                del(self.dict_of_real_JID[presence['muc']['room'] + '/' + presence['muc']['nick']])
+            else:
+                self.dict_of_real_JID[presence['muc']['room'] + '/' + presence['muc']['nick']] = presence['muc']['jid'].bare
+        if presence['muc']['room'] and presence['type'] != 'unavailable':
+            self.check_nick(presence)
+
+    def muc_online(self, presence):
+        pass
+
+    def check_nick(self, presence):
+
+        if not self.censor:
+            return
+
+        if presence['muc']['nick'] != self.mucnick:
+            jid = presence['muc']['jid'].bare
+            module = getattr(self.plugins['storage'], 'muc_censor')
+            correct_name = module.exec(bot = self, msg = None, ReplyTo = None, auth = None, param = (jid,))
+            if correct_name and correct_name != presence['muc']['nick']:
+                #ругаемся что ник надо поправить
+                ReplyTo = sleekxmpp.JID(presence['muc']['room'])
+                reply = self.make_message(ReplyTo)
+                reply['body'] = '' + presence['muc']['nick'] + ' поменяй ник на ' + correct_name + '\nЕсли считаешь что ник корректный, обнови API ключ на http://dashboard.legionofdeath.ru'
+                reply['type'] = 'groupchat'
+                reply.send()
+                #пробуем насильно поменять ник
+                stanza = self.makePresence()
+                x = ET.Element('{http://jabber.org/protocol/muc#user}x')
+                itemXML = ET.Element('item', {'affiliation': 'owner', 'jid': presence['muc']['jid'].full, 'role':'moderator'})
+                x.append(itemXML)
+                itemXML = ET.Element('status ', {'code': '110',})
+                x.append(itemXML)
+                itemXML = ET.Element('status ', {'code': '210',})
+                x.append(itemXML)
+                stanza.append(x)
+
+                #if password:
+                #    passelement = ET.Element('{http://jabber.org/protocol/muc}password')
+                #    passelement.text = password
+                #    x.append(passelement)
+                #if maxhistory:
+                #history = ET.Element('{http://jabber.org/protocol/muc}history')
+                #if maxhistory ==  "0":
+                #    history.attrib['maxchars'] = maxhistory
+                #else:
+                #    history.attrib['maxstanzas'] = maxhistory
+                #x.append(history)
+                #stanza.append(x)
+                #if not wait:
+                #    self.xmpp.send(stanza)
+                #else:
+                    #wait for our own room presence back
+                #    expect = ET.Element("{%s}presence" % self.xmpp.default_ns, {'from':"%s/%s" % (room, nick)})
+                #    self.xmpp.send(stanza, expect)
+                #self.rooms[room] = {}
+                #self.ourNicks[room] = nick
+                #stanza['from'] = self.plugin['xep_0045'].rooms[presence['muc']['room']][self.mucnick]['jid']
+                #stanza['from'] = sleekxmpp.JID(presence['muc']['room'] + '/oldhag')
+                #stanza['id'] = 'D0E2B666-3373-42C9-B726-D52C40A48383'
+                #stanza['to'] = presence['muc']['jid']
+                #self.send(stanza)
+                #stanza['status'] = pstatus
+                #stanza['nick'] = pnick
 
     def JID_to_realJID(self, msg):
 

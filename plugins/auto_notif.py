@@ -42,11 +42,12 @@ def help():
 def get_notifications(filter_type_id=()):
 
     global localbot
-    #выводит все нотификации с телами для всех чаров по ключу авторизованному в auth
+
     result2 = localbot.eve.auth.account.Characters()
 
     news_line = []
     now = datetime.datetime.utcnow()
+    #сделаем перебор по ключам в словаре и для тех, у кого время кэша вышло, получим нотификации.
     for character in result2.characters:
         NotificatiosID = localbot.eve.auth.char.Notifications(characterID=character.characterID)
         for RowID in NotificatiosID.notifications:
@@ -57,9 +58,25 @@ def get_notifications(filter_type_id=()):
             delta = now - datetime.datetime.utcfromtimestamp(RowID.sentDate)
             if delta.total_seconds() > 3600:
                 continue
-            NotificatiosBody = get_notification_body_by_ID(characterID = character.characterID, notificationID = RowID.notificationID, typeID = typeID)
-            #news_line.append((string_format(character.name) +  " Date = " + string_format(datetime.datetime.fromtimestamp(RowID.sentDate)) +  "\n" + "[" + NotificatiosBody + "]"))
+            NotificatiosBody = get_notification_body_by_ID(characterID = character.characterID, notificationID = RowID.notificationID, typeID = typeID, eve = localbot.eve)
             news_line.append(NotificatiosBody.replace('%time_delta%', localbot.one_day_delta_to_str(delta.total_seconds())))
+
+    #отработаем список еве аккаунтов сохраненых в боте
+    for eveaccount in localbot.multieve:
+
+        result2 = eveaccount['eve'].auth.account.Characters()
+        for character in result2.characters:
+            NotificatiosID = eveaccount['eve'].auth.char.Notifications(characterID=character.characterID)
+            for RowID in NotificatiosID.notifications:
+                typeID = string_format(RowID.typeID)
+                if filter_type_id:
+                    if (typeID not in filter_type_id):
+                        continue
+                delta = now - datetime.datetime.utcfromtimestamp(RowID.sentDate)
+                if delta.total_seconds() > 3600:
+                    continue
+                NotificatiosBody = get_notification_body_by_ID(characterID = character.characterID, notificationID = RowID.notificationID, typeID = typeID, eve = eveaccount['eve'])
+                news_line.append(NotificatiosBody.replace('%time_delta%', localbot.one_day_delta_to_str(delta.total_seconds())))
 
     return news_line
 
@@ -121,7 +138,6 @@ def convert_ID_to_human_readable(dict_param):
             except:
                 dict_param['moonID'] = 'неопределено'
 
-
 def decode_notification(row_data, typeID):
     global localbot
     #формирование сообщение по типу сообщения из тела нотификации
@@ -169,14 +185,14 @@ def decode_notification(row_data, typeID):
 
     return row_data
 
-def get_notification_body_by_ID(characterID, notificationID, typeID):
+def get_notification_body_by_ID(characterID, notificationID, typeID, eve):
 
     global localbot
 
     #возвращает тело нитификации в виде строки по ключу авторизованному в auth, для сообщения с notificationID у чара characterID
 
     #здесь нужно сделать конструктор из долбанного формата ццп в читаемый текст для нужных типов сообщений (атака поса, установка сбу и т.п.)
-    result = localbot.eve.auth.char.NotificationTexts(characterID=characterID, IDs=string_format(notificationID))
+    result = eve.auth.char.NotificationTexts(characterID=characterID, IDs=string_format(notificationID))
     message = decode_notification(result.notifications[0].data, typeID)
     return message
 
@@ -186,3 +202,7 @@ def schedule():
 
 def secret():
     return True
+
+def rooms():
+    broadcast_rooms = ['alarm@conference.jb.legionofdeath.ru', 'veryindustrialcorp@conference.jb.legionofdeath.ru']
+    return broadcast_rooms

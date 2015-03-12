@@ -69,10 +69,48 @@ def ReadConfig(options):
         options['mucnick'] = 'death'
         options['rooms'] = ()
 
-    return True
+    if config.has_option('MUC','censor'):
+        options['censor'] = config.get('MUC','censor')
+    else:
+        options['censor'] = 'False'
 
-def ttt():
-    print('120 seconds left')
+    if config.has_option('DASH_API','secretkey'):
+        options['secretkey'] = config.get('DASH_API','secretkey')
+    else:
+        options['secretkey'] = 'nokey'
+
+    if config.has_option('MUC','botroom'):
+        options['botroom'] = config.get('MUC','botroom')
+    else:
+        options['botroom'] = False
+
+    i = 1
+    MULTIEVE = []
+    while True:
+        if not config.has_section('MULTIEVE%s' % i):
+            break
+
+        SINGLEEVE = {}
+        if not config.has_option('MULTIEVE%s' % i,'KEYID'):
+            ErrorMessage = 'Option "KEYID" not found in section "MULTIEVE"%s!' % i
+            return False
+        SINGLEEVE['KEYID'] = config.get('MULTIEVE%s' % i,'KEYID')
+
+        if not config.has_option('MULTIEVE%s' % i,'VCODE'):
+            ErrorMessage = 'Option "VCODE" not found in section "MULTIEVE"%s!' % i
+            return False
+        SINGLEEVE['VCODE'] = config.get('MULTIEVE%s' % i,'VCODE')
+
+        if not config.has_option('MULTIEVE%s' % i,'CHARACTERID'):
+            ErrorMessage = 'Option "CHARACTERID" not found in section "MULTIEVE"%s!' % i
+            return False
+        SINGLEEVE['CHARACTERID'] = config.get('MULTIEVE%s' % i,'CHARACTERID')
+        SINGLEEVE['eve'] = ''
+        MULTIEVE.append(SINGLEEVE)
+        options['MULTIEVE'] = MULTIEVE
+        i = i + 1
+
+    return True
 
 def loadPlugins():
 
@@ -124,9 +162,14 @@ if ReadConfig(options):
     bases['group_db'] = group_db
 
     #создаем интерфейс в еву
-    eve = eve.eve(KEYID = options['KEYID'], VCODE = options['VCODE'], CHARACTERID = options['CHARACTERID'])
+    evebot = eve.eve(KEYID = options['KEYID'], VCODE = options['VCODE'], CHARACTERID = options['CHARACTERID'])
     #временно
-    eve.bases = bases
+    evebot.bases = bases
+
+    #создадим интерфейсы в еву по коллекции ключей из настроек
+    for item in options['MULTIEVE']:
+        item['eve'] = eve.eve(KEYID = item['KEYID'], VCODE = item['VCODE'], CHARACTERID = item['CHARACTERID'])
+
 
     #создаем бота
     xmpp = jabber_bot.EchoBot(options['JID'], options['password'])
@@ -146,16 +189,28 @@ if ReadConfig(options):
     #передаем боту конфиг
     xmpp.options = options
     #передаем боту интерфейс в еву
-    xmpp.eve = eve
+    xmpp.eve = evebot
+    #передаем боту список аккаунтов еве
+    xmpp.multieve = options['MULTIEVE']
     #передаем боту базы
     xmpp.bases = bases
     #передаем список плагинов
     xmpp.plugins = loadPlugins()
+    #команта доклада ботов
+    xmpp.botroom = options['botroom']
 
     #передаем боту список комнат для присутсвия и имя в конфах
     xmpp.mucnick = options['mucnick']
     xmpp.rooms = options['rooms']
 
+    #режим контроля ников
+    if options['censor'] == 'True':
+        xmpp.censor = True
+    else:
+        xmpp.censor = False
+
+    #передаем боту секретный ключ
+    xmpp.dash_secretkey = options['secretkey']
     # Connect to the XMPP server and start processing XMPP stanzas.
     if xmpp.connect():
         # If you do not have the dnspython library installed, you will need
@@ -174,17 +229,17 @@ if ReadConfig(options):
             #обработчик пресенсе в комнатах, для сопоставления с реальным джидом
             xmpp.add_event_handler("muc::%s@conference.jb.legionofdeath.ru::presence" % room,
                            xmpp.muc_presense)
+            #обработчик захода пользователя в комнату
+            xmpp.add_event_handler("muc::%s@conference.jb.legionofdeath.ru::got_online" % room,
+                           xmpp.muc_online)
+        #комната для докладов бота
+        if options['botroom']:
+            xmpp.plugin['xep_0045'].joinMUC(options['botroom'] + '@conference.jb.legionofdeath.ru', xmpp.mucnick)
 
         xmpp.process(block = False)
-        #xmpp.schedule('testschedule', 120, ttt,repeat = True)
         print("Bot started")
     else:
         print("Unable to connect.")
-
-    #alliance_list() #создаем базу альянсов
-    #get_wallet()
-    #solar_system_list()
-    #get_notifications()
 
 else:
     print(ErrorMessage)

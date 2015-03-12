@@ -21,12 +21,12 @@ def exec(bot = False, msg = None, ReplyTo = None, auth = None, **kwargs):
         item = group_db.get_value_by_ID(group).decode()
 
         bc_from = bot.JID_to_realJID(msg).bare
-        bcmessage = 'Broadcast from '+ bc_from + '\n' + ' '.join(param_list[1:])
+        bcmessage = ' '.join(param_list[1:])
         if item:
             items = item.split(';')
             for item in items:
                     toJID = sleekxmpp.JID(jid=item + '@broadcast.jb.legionofdeath.ru')
-                    reply = bot.make_message(toJID, bcmessage, mtype='normal')
+                    reply = bot.make_message(toJID, 'Broadcast from '+ bc_from + ' to ' + group + '\n' + bcmessage, mtype='normal')
                     reply.send()
 
             #отчитаемся

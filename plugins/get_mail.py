@@ -79,7 +79,7 @@ def get_mails():
     for character in result2.characters:
         MailID = localbot.eve.auth.char.MailMessages(characterID=character.characterID)
         count = 1
-        #составим словарь из идентификатора и даты
+        #составим словарь из строки и даты
         mailIDs = {}
         for RowID in MailID.messages:
             mailIDs[RowID.sentDate] = RowID
@@ -91,8 +91,8 @@ def get_mails():
             toCorpOrAllianceID = string_format(RowID.toCorpOrAllianceID)
             if toCorpOrAllianceID == '1411711376':
                 MailBody = get_mail_body_by_ID(characterID = character.characterID, mailID = RowID.messageID)
-                news_line.append('Письмо № ' + string_format(count) + '\n' + remove_tags(line + '\nTitle = ' + string_format(RowID.title) + '\n' + line +
-                        '\nDate = ' + string_format(datetime.datetime.utcfromtimestamp(RowID.sentDate)) +
+                news_line.append('Письмо № ' + string_format(count) + '\n' + remove_tags(line + '\nОтправитель\t: ' + RowID['senderName'] + '\nТема\t: ' + string_format(RowID.title) +
+                        '\nДата\t: ' + string_format(datetime.datetime.utcfromtimestamp(RowID.sentDate)) +
                         '\n' + line +  "\n" + MailBody)+ '\n\n' )
 
                 count += 1
